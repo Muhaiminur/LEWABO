@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Lewabo</string>
+
+    <string name="confirm_string">Confirm</string>
+    <string name="exit_tittle_string">Do you want to Exit?</string>
+    <string name="ok_string">OK</string>
+    <string name="cancel_string">Cancel</string>
+    <string name="no">No</string>
+    <string name="no_internet">Please Connect To Internet</string>
+    <string name="wait_string">Loading</string>
+    <string name="something_went_wrong">Can Not Connect With Server</string>
+    <string name="admin_string">Contact With Admin</string>
+
+    <string name="getstart_string">Get Started</string>
+    <string name="privacy_string">Privacy</string>
+    <string name="signin_string">Sign in</string>
+    <string name="email_string">Email or Phone  Number</string>
+    <string name="pass_string">Password</string>
+    <string name="remember_string">Remember Me</string>
+    <string name="help_string">Need  help?</string>
+    <string name="loginfb_string">login  with facebook</string>
+    <string name="new_string">New to lewabo?</string>
+    <string name="signup_string"><u>Sigh up now.</u></string>
+    <string name="continue_string">continue</string>
+    <string name="steap1_string">STEP 1 of 3</string>
+    <string name="setup_string">Set up your account</string>
+    <string name="reg11_string">Lewabo is personalised for you. Use your email and create a password to watch Lewabo on any device at any time</string>
+    <string name="reg21_string">Enter your email and password to start your membership</string>
+    <string name="reg22_string">just two more steps and you’re finished! we hatepaperwork, too.</string>
+    <string name="reg23_string">Create your account</string>
+    <string name="reg24_string">Please don not email me Lewabo special offers.</string>
+    <string name="reg31_string">STEP 2 of 3</string>
+    <string name="reg32_string">Choose your plan.</string>
+    <string name="reg33_string">No commitments, cancel at any time.</string>
+    <string name="reg34_string">everything on Lewabo for one low price</string>
+    <string name="reg35_string">unlimited viewing on all your devices.</string>
+    <string name="reg36_string">see the plans</string>
+    <string name="reg41_string">Choose the plan that’s right for you.</string>
+    <string name="reg42_string">Watch as much as you want. advert-free.</string>
+    <string name="reg43_string">Recommendations just for you.</string>
+    <string name="reg44_string">Change or cancel your plan anytime.</string>
+    <string name="reg45_string">Basic</string>
+    <string name="reg46_string">Standard</string>
+    <string name="reg47_string">Premium</string>
+    <string name="reg48_string">$9.99 /\n 1 Month</string>
+    <string name="reg49_string">$54.99 /\n 6 Months</string>
+    <string name="reg410_string">$99 /\n 12 Months</string>
+    <string name="reg51_string">STEP 3 of 3</string>
+    <string name="reg52_string">Set up your payment</string>
+    <string name="reg53_string">your membership starts as soon as you set up payment.</string>
+    <string name="reg54_string">No commitments. cancel online at any time</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/reg1Fragment">
+
+    <fragment
+        android:id="@+id/reg1Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg1Page"
+        tools:layout="@layout/fragment_reg1_page" />
+    <fragment
+        android:id="@+id/reg2Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg2Page"
+        tools:layout="@layout/fragment_reg2_page" />
+    <fragment
+        android:id="@+id/reg3Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg3Page"
+        tools:layout="@layout/fragment_reg3_page" />
+    <fragment
+        android:id="@+id/reg4Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg4Page"
+        tools:layout="@layout/fragment_reg4_page" />
+    <fragment
+        android:id="@+id/reg5Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg5Page"
+        tools:layout="@layout/fragment_reg5_page" />
+    <fragment
+        android:id="@+id/reg6Fragment"
+        android:name="com.lewabo.lewabo.view.fragment.Reg6Page"
+        tools:layout="@layout/fragment_reg6_page" />
+
+</navigation>
