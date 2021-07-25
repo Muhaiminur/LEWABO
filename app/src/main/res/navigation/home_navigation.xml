@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/dashpage">
+
+    <fragment
+        android:id="@+id/dashpage"
+        android:name="com.lewabo.lewabo.view.fragment.DashboaredPage"
+        tools:layout="@layout/fragment_dashboared_page" />
+    <fragment
+        android:id="@+id/coomingsoonpage"
+        android:name="com.lewabo.lewabo.view.fragment.ComingsoonPage"
+        tools:layout="@layout/fragment_comingsoon_page" />
+    <fragment
+        android:id="@+id/recentpage"
+        android:name="com.lewabo.lewabo.view.fragment.RecentviewPage"
+        tools:layout="@layout/fragment_recentview_page" />
+    <fragment
+        android:id="@+id/profilepage"
+        android:name="com.lewabo.lewabo.view.fragment.ProfilePage"
+        tools:layout="@layout/fragment_profile_page" />
+
+</navigation>

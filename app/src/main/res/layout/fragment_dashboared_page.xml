@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/app_black1"
+        tools:context=".view.fragment.DashboaredPage">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_launcher" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_search" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_user" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:text="@string/tvshows_string"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_xl"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:text="@string/movies_string"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_xl"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:text="@string/mylist_string"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_xl"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/banner_slider"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorEnabled="false"
+                app:sliderScrollTimeInSec="4"
+                app:sliderStartAutoCycle="true" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/banner_tag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

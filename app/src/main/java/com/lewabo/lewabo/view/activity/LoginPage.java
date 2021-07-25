@@ -31,6 +31,13 @@ public class LoginPage extends AppCompatActivity {
                     startActivity(new Intent(context, RegistrationPage.class));
                 }
             });
+            binding.loginWork.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(context, HomePage.class));
+                    finish();
+                }
+            });
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }

@@ -49,4 +49,12 @@
     <string name="reg52_string">Set up your payment</string>
     <string name="reg53_string">your membership starts as soon as you set up payment.</string>
     <string name="reg54_string">No commitments. cancel online at any time</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tvshows_string">TV Shows</string>
+    <string name="movies_string">Movies</string>
+    <string name="mylist_string">My list</string>
+    <string name="play_string">Play</string>
+    <string name="info_string">info</string>
 </resources>

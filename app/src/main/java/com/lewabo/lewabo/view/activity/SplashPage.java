@@ -56,9 +56,10 @@ public class SplashPage extends AppCompatActivity {
 
     public void sliderwork() {
         try {
-            list.add("https://i.pinimg.com/564x/c2/ef/51/c2ef51123c764541e2087b0324ee72e7.jpg");
-            list.add("https://m.media-amazon.com/images/I/61P-HNp5QsL.jpg");
-            list.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2qjzOKQJhQiKWlhJZpc-MrnSvLl6MNWyGC1l9tUgAjKLJThOaTsMztqVQQ4NHVKZ5-ak&usqp=CAU");
+            list.add("https://i.ibb.co/CsP7GLK/splash1.jpg");
+            list.add("https://i.ibb.co/jrpLk7h/DT-Flyer-4.jpg");
+            list.add("https://i.ibb.co/LkWJsXC/What-She-Wrote-3by4.png");
+            list.add("https://i.ibb.co/hWwgZBP/3-by-4-image-1280-1.jpg");
             sliderAdapter = new SliderAdapter(context);
             sliderAdapter.renewItems(list);
             binding.splashSlider.setSliderAdapter(sliderAdapter);
