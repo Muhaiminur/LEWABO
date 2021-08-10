@@ -37,7 +37,7 @@ public class ProfilePage extends Fragment {
             try {
                 context = getActivity();
                 utility = new Utility(context);
-                navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.freg_container_view);
+                navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
                 navController = navHostFragment.getNavController();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));

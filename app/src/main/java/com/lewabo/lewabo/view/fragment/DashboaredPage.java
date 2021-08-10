@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.adapter.BannerAdapter;
-import com.lewabo.lewabo.adapter.SliderAdapter;
 import com.lewabo.lewabo.adapter.TagAdapter;
 import com.lewabo.lewabo.data.TagModel;
 import com.lewabo.lewabo.databinding.FragmentDashboaredPageBinding;
@@ -55,6 +54,30 @@ public class DashboaredPage extends Fragment {
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
                 navController = navHostFragment.getNavController();
                 bannerwork();
+                binding.dashMylist.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.mylist_frag);
+                        }
+                    }
+                });
+                binding.dashSearch.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.search_frag);
+                        }
+                    }
+                });
+                binding.dashProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.profilepage);
+                        }
+                    }
+                });
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }

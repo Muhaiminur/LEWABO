@@ -8,7 +8,7 @@
         android:background="@color/app_black2"
         android:orientation="vertical"
         android:paddingBottom="70dp"
-        tools:context=".view.fragment.ComingsoonPage">
+        tools:context=".view.fragment.SearchPage">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,17 +27,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_gravity="center|center_vertical"
                 android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center|center_vertical"
-                android:layout_margin="5dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_search" />
 
             <ImageView
                 android:layout_width="36dp"
@@ -49,8 +39,25 @@
                 android:src="@drawable/ic_user" />
         </LinearLayout>
 
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/search_tittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:text="@string/top_string"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xxxl"
+            android:textStyle="bold" />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/coming_recycler"
+            android:id="@+id/search_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

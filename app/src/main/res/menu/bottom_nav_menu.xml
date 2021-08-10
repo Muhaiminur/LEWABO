@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home_string" />
+    <item
+        android:id="@+id/bottom_coming"
+        android:icon="@drawable/ic_comingsoon"
+        android:title="@string/come_string" />
+
+    <item
+        android:id="@+id/bottom_recent"
+        android:icon="@drawable/ic_recentview"
+        android:title="@string/recent_string" />
+
+</menu>
