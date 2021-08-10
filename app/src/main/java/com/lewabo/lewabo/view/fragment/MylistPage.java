@@ -13,24 +13,23 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.lewabo.lewabo.R;
-import com.lewabo.lewabo.adapter.ComingsoonAdapter;
-import com.lewabo.lewabo.databinding.FragmentComingsoonPageBinding;
+import com.lewabo.lewabo.adapter.MylistAdapter;
+import com.lewabo.lewabo.databinding.FragmentMylistPageBinding;
 import com.lewabo.lewabo.utility.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComingsoonPage extends Fragment {
+public class MylistPage extends Fragment {
+
     Utility utility;
     Context context;
-    FragmentComingsoonPageBinding binding;
+    FragmentMylistPageBinding binding;
     NavHostFragment navHostFragment;
     NavController navController;
-    ComingsoonAdapter adapter;
+    MylistAdapter adapter;
     List<String> list = new ArrayList<>();
 
     @Override
@@ -41,13 +40,13 @@ public class ComingsoonPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
-            binding = FragmentComingsoonPageBinding.inflate(inflater, container, false);
+            binding = FragmentMylistPageBinding.inflate(inflater, container, false);
             try {
                 context = getActivity();
                 utility = new Utility(context);
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
                 navController = navHostFragment.getNavController();
-                initial_list();
+                initial_mylist();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }
@@ -55,21 +54,13 @@ public class ComingsoonPage extends Fragment {
         return binding.getRoot();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (adapter != null) {
-            getmylist();
-        }
-    }
-
-    void initial_list() {
+    void initial_mylist() {
         try {
-            adapter = new ComingsoonAdapter(list, context);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-            binding.comingRecycler.setLayoutManager(mLayoutManager);
-            binding.comingRecycler.setItemAnimator(new DefaultItemAnimator());
-            binding.comingRecycler.setAdapter(adapter);
+            adapter = new MylistAdapter(list, context);
+            binding.mylistRecycler.setLayoutManager(new GridLayoutManager(context, 3));
+            binding.mylistRecycler.setItemAnimator(new DefaultItemAnimator());
+            binding.mylistRecycler.setAdapter(adapter);
+            getmylist();
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }

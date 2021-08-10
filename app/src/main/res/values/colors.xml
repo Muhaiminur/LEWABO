@@ -36,5 +36,6 @@
     <color name="app_white2">#ffffff</color>
     <color name="app_white3">#ebebeb</color>
     <color name="app_white4">#F9F9F9</color>
+    <color name="app_white5">#C4C4C4</color>
     <color name="colorYellow">#F6BF26</color>
 </resources>

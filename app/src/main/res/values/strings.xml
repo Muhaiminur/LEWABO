@@ -57,4 +57,11 @@
     <string name="mylist_string">My list</string>
     <string name="play_string">Play</string>
     <string name="info_string">info</string>
+
+    <string name="home_string">Home</string>
+    <string name="come_string">Coming Soon</string>
+    <string name="recent_string">Recent View</string>
+    <string name="top_string">Top Searches</string>
+    <!-- <string name="_string"></string>
+    <string name="_string"></string>-->
 </resources>

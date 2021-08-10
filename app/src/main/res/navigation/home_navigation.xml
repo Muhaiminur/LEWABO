@@ -2,23 +2,34 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/dashpage">
+    app:startDestination="@id/bottom_home">
 
     <fragment
-        android:id="@+id/dashpage"
+        android:id="@+id/bottom_home"
         android:name="com.lewabo.lewabo.view.fragment.DashboaredPage"
         tools:layout="@layout/fragment_dashboared_page" />
     <fragment
-        android:id="@+id/coomingsoonpage"
+        android:id="@+id/bottom_coming"
         android:name="com.lewabo.lewabo.view.fragment.ComingsoonPage"
         tools:layout="@layout/fragment_comingsoon_page" />
     <fragment
-        android:id="@+id/recentpage"
-        android:name="com.lewabo.lewabo.view.fragment.RecentviewPage"
-        tools:layout="@layout/fragment_recentview_page" />
+        android:id="@+id/bottom_recent"
+        android:name="com.lewabo.lewabo.view.fragment.RecentPage"
+        tools:layout="@layout/fragment_recent_page" />
     <fragment
         android:id="@+id/profilepage"
         android:name="com.lewabo.lewabo.view.fragment.ProfilePage"
         tools:layout="@layout/fragment_profile_page" />
+
+
+    <fragment
+        android:id="@+id/mylist_frag"
+        android:name="com.lewabo.lewabo.view.fragment.MylistPage"
+        tools:layout="@layout/fragment_mylist_page" />
+
+    <fragment
+        android:id="@+id/search_frag"
+        android:name="com.lewabo.lewabo.view.fragment.SearchPage"
+        tools:layout="@layout/fragment_search_page" />
 
 </navigation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <!--<variable
+            name="model"
+            type="com.microteck.happymind.model.SecondEmoModel" />-->
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp">
+
+        <ImageView
+            android:id="@+id/mylist_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:contentDescription="@string/privacy_string"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_loading" />
+    </androidx.cardview.widget.CardView>
+</layout>

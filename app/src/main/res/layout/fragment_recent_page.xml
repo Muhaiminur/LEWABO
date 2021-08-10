@@ -8,7 +8,7 @@
         android:background="@color/app_black2"
         android:orientation="vertical"
         android:paddingBottom="70dp"
-        tools:context=".view.fragment.ComingsoonPage">
+        tools:context=".view.fragment.RecentPage">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/coming_recycler"
+            android:id="@+id/recent_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
