@@ -1,10 +1,13 @@
 package com.lewabo.lewabo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.databinding.RecyclerTagMovieBinding;
 import com.lewabo.lewabo.utility.Utility;
+import com.lewabo.lewabo.view.activity.PlayerDetails;
 
 import java.util.List;
 
@@ -57,12 +61,20 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
                     .fitCenter()
                     .into(holder.historyBinding.tagMovieImage);
 
-            /*holder.historyBinding.historyCall.setOnClickListener(new View.OnClickListener() {
+            holder.historyBinding.tagMovieImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    utility.openDialpad(bodyResponse.getPhone());
+                    try {
+                        /*NavController navController = Navigation.findNavController(holder.historyBinding.getRoot());
+                        if (navController != null) {
+                            navController.navigate(R.id.player_frag);
+                        }*/
+                        ((AppCompatActivity) context).startActivity(new Intent(context, PlayerDetails.class));
+                    } catch (Exception e) {
+                        Log.d("Error Line Number", Log.getStackTraceString(e));
+                    }
                 }
-            });*/
+            });
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }

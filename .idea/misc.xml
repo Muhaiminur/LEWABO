@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/bottombar_shadow.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_home_page.xml" value="0.18" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_player_details.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_registration_page.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/exo_playback_custom_control_view.xml" value="0.18854166666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_comingsoon_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_dashboared_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_mylist_page.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_player_page.xml" value="0.18854166666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_recent_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_recentview_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_search_page.xml" value="0.15" />

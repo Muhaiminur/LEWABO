@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Themelewabo">
-        <activity android:name=".view.activity.HomePage"></activity>
+        <activity
+            android:name=".view.activity.PlayerDetails"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity android:name=".view.activity.HomePage" />
         <activity android:name=".view.activity.RegistrationPage" />
         <activity android:name=".view.activity.LoginPage" />
         <activity
