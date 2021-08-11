@@ -24,11 +24,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:played_color="@color/app_red2"
-            app:ad_marker_color="@color/app_red2"
             app:player_layout_id="@layout/exo_player_view"
             app:repeat_toggle_modes="none"
             app:resize_mode="fill"
-            app:show_timeout="45000"
+            app:show_timeout="7000"
             app:surface_type="texture_view"
             app:use_controller="true" />
 

@@ -11,6 +11,11 @@
     <string name="something_went_wrong">Can Not Connect With Server</string>
     <string name="admin_string">Contact With Admin</string>
 
+    <string name="wrong_passeord_string">Wrong Password or Mobile Number</string>
+    <string name="network_available">Internet Available</string>
+    <string name="validation_string">Please Check All Input</string>
+    <string name="network_not_available">Internet is not available</string>
+
     <string name="getstart_string">Get Started</string>
     <string name="privacy_string">Privacy</string>
     <string name="signin_string">Sign in</string>
@@ -62,6 +67,7 @@
     <string name="come_string">Coming Soon</string>
     <string name="recent_string">Recent View</string>
     <string name="top_string">Top Searches</string>
+    <string name="subsexpired_string">Your Subscription Expired</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
 </resources>

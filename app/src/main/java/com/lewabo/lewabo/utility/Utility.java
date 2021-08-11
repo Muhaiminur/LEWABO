@@ -266,22 +266,44 @@ public class Utility {
         return versionCode;
     }
 
-    public void setFirebaseToken(String token) {
-        SharedPreferences sharedPref = context.getSharedPreferences("FCM", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("token", token);
-        editor.commit();
-    }
 
-    public String getFirebaseToken() {
-        SharedPreferences sharedPref = context.getSharedPreferences("FCM", Context.MODE_PRIVATE);
-        return sharedPref.getString("token", "");
-    }
-
-    public void setAuthToken(String token) {
+    public void setuserid(String token) {
         SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("auth_token", token);
         editor.commit();
     }
+
+    public String getuserid() {
+        SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+        return sharedPref.getString("auth_token", "");
+    }
+
+    public void clearuserid() {
+        SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().commit();
+    }
+
+
+    public String getAuthToken() {
+        return "Basic TGV3YWJvOkxld0BibyQxMjMjJA==";
+    }
+
+    public void setUserprofile(String token) {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("user_profile", token);
+        editor.commit();
+    }
+
+    public String getUserprofile() {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        return sharedPref.getString("user_profile", "");
+    }
+
+    public void clearUserprofile() {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().commit();
+    }
+
 }
