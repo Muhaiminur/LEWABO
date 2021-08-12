@@ -42,6 +42,7 @@ public class PlayerDetails extends AppCompatActivity implements Player.Listener,
         try {
             context = this;
             utility = new Utility(context);
+            videoUri = getIntent().getStringExtra("video_id");
             binding.videoFullScreenPlayer.setControllerVisibilityListener(this);
             binding.videoFullScreenPlayer.requestFocus();
             binding.videoFullScreenPlayer.setShutterBackgroundColor(Color.TRANSPARENT);
