@@ -68,6 +68,7 @@
     <string name="recent_string">Recent View</string>
     <string name="top_string">Top Searches</string>
     <string name="subsexpired_string">Your Subscription Expired</string>
+    <string name="search_hint">Search for a show, movie</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
 </resources>

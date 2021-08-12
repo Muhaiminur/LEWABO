@@ -39,10 +39,15 @@
                 android:src="@drawable/ic_user" />
         </LinearLayout>
 
-        <androidx.appcompat.widget.SearchView
+        <SearchView
+            android:id="@+id/search_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:iconifiedByDefault="false"
+            android:padding="5dp"
+            android:theme="@style/ThemeOverlay.SearchView"
+            android:queryHint="@string/search_hint" />
 
         <TextView
             android:id="@+id/search_tittle"

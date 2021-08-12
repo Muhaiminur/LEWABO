@@ -1,27 +1,32 @@
 package com.lewabo.lewabo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.lewabo.lewabo.R;
+import com.lewabo.lewabo.data.moviecontent.Content;
 import com.lewabo.lewabo.databinding.RecyclerSearchBinding;
 import com.lewabo.lewabo.utility.Utility;
+import com.lewabo.lewabo.view.activity.PlayerDetails;
 
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.Todo_View_Holder> {
     Context context;
-    List<String> list;
+    List<Content> list;
     Utility utility;
 
 
-    public SearchAdapter(List<String> to, Context c) {
+    public SearchAdapter(List<Content> to, Context c) {
         list = to;
         context = c;
         utility = new Utility(context);
@@ -35,7 +40,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.Todo_View_
             this.historyBinding = view;
         }
 
-        public void bind(String s) {
+        public void bind(Content s) {
             //historyBinding.setHistory(deliveryModel);
             historyBinding.executePendingBindings();
         }
@@ -49,20 +54,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.Todo_View_
 
     @Override
     public void onBindViewHolder(final SearchAdapter.Todo_View_Holder holder, int position) {
-        final String bodyResponse = list.get(position);
+        final Content bodyResponse = list.get(position);
         try {
             holder.bind(bodyResponse);
             Glide.with(context)
-                    .load(bodyResponse.toString())
+                    .load(bodyResponse.getImage().toString())
                     .fitCenter()
                     .into(holder.historyBinding.searchImage);
 
-            /*holder.historyBinding.historyCall.setOnClickListener(new View.OnClickListener() {
+            holder.historyBinding.searchPlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    utility.openDialpad(bodyResponse.getPhone());
+                    ((AppCompatActivity) context).startActivity(new Intent(context, PlayerDetails.class).putExtra("video_id", bodyResponse.getResolutions().getPath240p()));
                 }
-            });*/
+            });
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }

@@ -38,6 +38,11 @@ public interface ApiService {
     @GET("content/me/all")
     Call<API_RESPONSE> get_mylist(@Header("Authorization") String apiKey, @Header("userId") String usersId);
 
+    //6 search list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("content/search")
+    Call<API_RESPONSE> get_searchlist(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
+
 /*
     //2 user registration
     @POST("register")
