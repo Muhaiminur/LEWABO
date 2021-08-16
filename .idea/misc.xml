@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/bottombar_shadow.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_lock.xml" value="0.2046875" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_my_list.xml" value="0.2046875" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_play.xml" value="0.2046875" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/rectangular_red_border_black.xml" value="0.2046875" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/rectangular_red_border_white.xml" value="0.2046875" />
@@ -19,7 +21,7 @@
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_comingsoon_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_dashboared_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_mylist_page.xml" value="0.1" />
-        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_player_page.xml" value="0.18854166666666666" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_player_page.xml" value="0.292259083728278" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_recent_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_recentview_page.xml" value="0.1" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/fragment_search_page.xml" value="0.15" />

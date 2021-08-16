@@ -3,6 +3,7 @@ package com.lewabo.lewabo.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
+import com.google.gson.Gson;
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.data.moviecontent.Content;
 import com.lewabo.lewabo.databinding.RecyclerTagMovieBinding;
@@ -31,6 +35,7 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
     Context context;
     List<Content> list;
     Utility utility;
+    Gson gson = new Gson();
 
 
     public TagMovieAdapter(List<Content> to, Context c) {
@@ -75,11 +80,11 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
                 @Override
                 public void onClick(View view) {
                     try {
-                        /*NavController navController = Navigation.findNavController(holder.historyBinding.getRoot());
-                        if (navController != null) {
+                        NavController navController = Navigation.findNavController(holder.historyBinding.getRoot());
+                        /*if (navController != null) {
                             navController.navigate(R.id.player_frag);
                         }*/
-                        tagdialog(bodyResponse);
+                        tagdialog(bodyResponse, navController);
                         //((AppCompatActivity) context).startActivity(new Intent(context, PlayerDetails.class).putExtra("video_id", bodyResponse.getResolutions().getPath240p()));
                     } catch (Exception e) {
                         Log.d("Error Line Number", Log.getStackTraceString(e));
@@ -97,7 +102,7 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
     }
 
 
-    public void tagdialog(Content con) {
+    public void tagdialog(Content con, NavController controller) {
         try {
             BottomSheetDialog dialog = new BottomSheetDialog(context);
             dialog.setContentView(R.layout.dialog_tagdialog);
@@ -137,6 +142,11 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
                 @Override
                 public void onClick(View view) {
                     dialog.dismiss();
+                    if (controller != null) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("content_details", gson.toJson(con));
+                        controller.navigate(R.id.player_frag, bundle);
+                    }
                 }
             });
         } catch (Exception e) {

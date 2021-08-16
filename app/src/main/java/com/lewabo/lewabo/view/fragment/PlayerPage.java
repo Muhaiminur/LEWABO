@@ -1,49 +1,60 @@
 package com.lewabo.lewabo.view.fragment;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
-import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.PlaybackParameters;
-import com.google.android.exoplayer2.PlaybackPreparer;
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
-import com.google.android.exoplayer2.ui.PlayerControlView;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.lewabo.lewabo.R;
+import com.lewabo.lewabo.adapter.MylistAdapter;
+import com.lewabo.lewabo.data.moviecontent.Content;
 import com.lewabo.lewabo.databinding.FragmentPlayerPageBinding;
+import com.lewabo.lewabo.http.ApiService;
+import com.lewabo.lewabo.http.Controller;
+import com.lewabo.lewabo.utility.API_RESPONSE;
 import com.lewabo.lewabo.utility.Utility;
+import com.lewabo.lewabo.view.activity.PlayerDetails;
 
-public class PlayerPage extends Fragment implements PlaybackPreparer, PlayerControlView.VisibilityListener, Player.Listener {
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class PlayerPage extends Fragment {
     Utility utility;
     Context context;
     FragmentPlayerPageBinding binding;
-    String videoUri = "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4";
-    SimpleExoPlayer player;
-    Handler mHandler;
-    Runnable mRunnable;
-    int HI_BITRATE = 2097152;
-    int MI_BITRATE = 1048576;
-    int LO_BITRATE = 524288;
-    //DefaultTrackSelector trackSelector;
+    ApiService apiInterface = Controller.getBaseClient().create(ApiService.class);
+    Gson gson = new Gson();
+    NavHostFragment navHostFragment;
+    NavController navController;
+    Content content;
+
+    List<Content> list = new ArrayList<>();
+    MylistAdapter adapter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,13 +63,49 @@ public class PlayerPage extends Fragment implements PlaybackPreparer, PlayerCont
             try {
                 context = getActivity();
                 utility = new Utility(context);
-                AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-                setUp();
-                //updateButtonVisibilities();
-                Log.d("visiblity", "check = ");
-                binding.videoFullScreenPlayer.setControllerVisibilityListener(this);
-                binding.videoFullScreenPlayer.requestFocus();
-                binding.videoFullScreenPlayer.setShutterBackgroundColor(Color.TRANSPARENT);
+                navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
+                navController = navHostFragment.getNavController();
+                if (getArguments() != null && getArguments().containsKey("content_details")) {
+                    content = gson.fromJson(getArguments().getString("content_details"), Content.class);
+                    if (content != null) {
+                        utility.logger("content details" + content.toString());
+                        binding.playerDate.setText(content.getDuration() + "min " + content.getLikes().toString() + "likes");
+                        binding.playerTittle.setText(content.getTitle());
+                        binding.playerDescription.setText(content.getBrief());
+                        Glide.with(context)
+                                .load(content.getImage()).error(R.drawable.ic_loading).into(binding.playerImage);
+                    } else {
+                        utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
+                    }
+                } else {
+                    utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
+                }
+                binding.playerMylist.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (content != null) {
+                            add_mylist(content.getId().toString());
+                        }
+                    }
+                });
+                binding.playerLike.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (content != null) {
+                            add_tolike(content.getId().toString());
+                        }
+                    }
+                });
+
+                binding.playerPlay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (content != null) {
+                            startActivity(new Intent(context, PlayerDetails.class).putExtra("video_id", content.getResolutions().getPath240p()));
+                        }
+                    }
+                });
+                initial_related();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }
@@ -66,223 +113,155 @@ public class PlayerPage extends Fragment implements PlaybackPreparer, PlayerCont
         return binding.getRoot();
     }
 
-    private void setUp() {
-        initializePlayer();
-        if (videoUri == null) {
-            return;
-        }
-        buildMediaSource(Uri.parse(videoUri));
-    }
-
-    private void initializePlayer() {
-        if (player == null) {
-            // 1. Create a default TrackSelector
-            /*LoadControl loadControl = new DefaultLoadControl(
-                    new DefaultAllocator(true, 16),
-                    2 * VideoPlayerConfig.MIN_BUFFER_DURATION,
-                    2 * VideoPlayerConfig.MAX_BUFFER_DURATION,
-                    VideoPlayerConfig.MIN_PLAYBACK_START_BUFFER,
-                    VideoPlayerConfig.MIN_PLAYBACK_RESUME_BUFFER, -1, true);*/
-
-            /*BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-            TrackSelection.Factory videoTrackSelectionFactory =
-                    new AdaptiveTrackSelection.Factory(bandwidthMeter);
-            trackSelector =
-                    new DefaultTrackSelector(videoTrackSelectionFactory);*/
-            // 2. Create the player
-            player = new SimpleExoPlayer.Builder(context).build();
-            binding.videoFullScreenPlayer.setPlayer(player);
-        }
-    }
-
-    private void buildMediaSource(Uri mUri) {
-        /*// Measures bandwidth during playback. Can be null if not required.
-        DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(context,
-                Util.getUserAgent(context, getString(R.string.app_name)), bandwidthMeter);
-        // This is the MediaSource representing the media to be played.
-        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(mUri);
-        MediaSource videoSource2 = new ExtractorMediaSource.Factory(dataSourceFactory)
-                .createMediaSource(Uri.parse("https://archive.org/download/Popeye_forPresident/Popeye_forPresident_512kb.mp4"));
-        ConcatenatingMediaSource concatenatedSource =
-                new ConcatenatingMediaSource(videoSource, videoSource2);*/
-        // Prepare the player with the source.
-
-        MediaItem mediaItem = MediaItem.fromUri(mUri);
-        player.setMediaItem(mediaItem);
-        player.prepare();
-        player.setPlayWhenReady(true);
-        player.addListener(this);
-    }
-
-    private void releasePlayer() {
-        if (player != null) {
-            player.release();
-            player = null;
-        }
-    }
-
-    private void pausePlayer() {
-        if (player != null) {
-            player.setPlayWhenReady(false);
-            player.getPlaybackState();
-        }
-    }
-
-    private void resumePlayer() {
-        if (player != null) {
-            player.setPlayWhenReady(true);
-            player.getPlaybackState();
+    void initial_related() {
+        try {
+            adapter = new MylistAdapter(list, context);
+            binding.playerRecycler.setLayoutManager(new GridLayoutManager(context, 3));
+            binding.playerRecycler.setItemAnimator(new DefaultItemAnimator());
+            binding.playerRecycler.setAdapter(adapter);
+            getmylist();
+        } catch (Exception e) {
+            Log.d("Error Line Number", Log.getStackTraceString(e));
         }
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        pausePlayer();
-        if (mRunnable != null) {
-            mHandler.removeCallbacks(mRunnable);
+    public void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            getmylist();
         }
     }
 
-
-
-    /*@Override
-    public void onRestart() {
-        super.onRestart();
-        resumePlayer();
-    }*/
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        releasePlayer();
-    }
-
-    @Override
-    public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
-
-    }
-
-    @Override
-    public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
-
-    }
-
-    @Override
-    public void onLoadingChanged(boolean isLoading) {
-
-    }
-
-    @Override
-    public void onPlaybackStateChanged(@Player.State int playbackState) {
-        switch (playbackState) {
-
-            case Player.STATE_BUFFERING:
-                binding.spinnerVideoDetails.setVisibility(View.VISIBLE);
-                break;
-            case Player.STATE_ENDED:
-                // Activate the force enable
-                break;
-            case Player.STATE_IDLE:
-
-                break;
-            case Player.STATE_READY:
-                binding.spinnerVideoDetails.setVisibility(View.GONE);
-                player.play();
-                break;
-            default:
-                // status = PlaybackStatus.IDLE;
-                break;
-        }
-    }
-
-    @Override
-    public void onRepeatModeChanged(int repeatMode) {
-
-    }
-
-    @Override
-    public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
-
-    }
-
-    @Override
-    public void onPlayerError(ExoPlaybackException error) {
-
-    }
-
-    @Override
-    public void onPositionDiscontinuity(int reason) {
-
-    }
-
-    @Override
-    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
-
-    }
-
-    @Override
-    public void onSeekProcessed() {
-
-    }
-
-    @Override
-    public void onVisibilityChange(int visibility) {
-        Log.d("visiblity", "check = " + visibility);
-        binding.videoQuality.setVisibility(visibility);
-
-
-    }
-
-    @Override
-    public void preparePlayback() {
-        initializePlayer();
-    }
-
-    /*private void updateButtonVisibilities() {
-        if (player == null) {
-            Log.d("OK", "ONE");
-            return;
-        }
-
-        //MappingTrackSelector.MappedTrackInfo mappedTrackInfo = trackSelector.getCurrentMappedTrackInfo();
-        if (mappedTrackInfo == null) {
-            Log.d("OK", "TWO");
-            return;
-        }
-
-        for (int i = 0; i < mappedTrackInfo.getRendererCount(); i++) {
-            TrackGroupArray trackGroups = mappedTrackInfo.getTrackGroups(i);
-            if (trackGroups.length != 0) {
-                int label;
-                switch (player.getRendererType(i)) {
-                    case C.TRACK_TYPE_AUDIO:
-                        label = R.string.exo_track_selection_title_audio;
-                        Log.d("OK", label + "audio");
-                        break;
-                    case C.TRACK_TYPE_VIDEO:
-                        label = R.string.exo_track_selection_title_video;
-                        Log.d("OK", label + "video");
-                        break;
-                    case C.TRACK_TYPE_TEXT:
-                        label = R.string.exo_track_selection_title_text;
-                        Log.d("OK", label + "text");
-                        break;
-                    default:
-                        continue;
+    private void getmylist() {
+        try {
+            utility.showProgress(false, context.getResources().getString(R.string.wait_string));
+            Call<API_RESPONSE> call = apiInterface.get_mylist(utility.getAuthToken(), utility.getuserid());
+            call.enqueue(new Callback<API_RESPONSE>() {
+                @Override
+                public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {
+                    utility.hideProgress();
+                    try {
+                        utility.logger(response.toString());
+                        if (response.isSuccessful() && response.code() == 200 && response != null) {
+                            utility.logger("get mylist " + response.body().toString());
+                            API_RESPONSE api_response = response.body();
+                            if (api_response.getCode() == 200) {
+                                Type listType = new TypeToken<List<Content>>() {
+                                }.getType();
+                                List<Content> pList = gson.fromJson(api_response.getData().toString(), listType);
+                                utility.logger("my list" + pList.size());
+                                if (pList.size() > 0) {
+                                    list.clear();
+                                    list.addAll(pList);
+                                    adapter.notifyDataSetChanged();
+                                } else {
+                                    list.clear();
+                                    adapter.notifyDataSetChanged();
+                                }
+                            } else {
+                                utility.showDialog(api_response.getData().toString());
+                            }
+                        } else {
+                            utility.showToast(context.getResources().getString(R.string.something_went_wrong));
+                        }
+                    } catch (Exception e) {
+                        utility.hideProgress();
+                        Log.d("Failed to hit api", Log.getStackTraceString(e));
+                    }
                 }
-                Log.d("OK", label + "ONE");
-                binding.videoQuality.setText(label);
-                binding.videoQuality.setTag(i);
-            }
+
+                @Override
+                public void onFailure(Call<API_RESPONSE> call, Throwable t) {
+                    Log.d("On Failure to hit api", t.toString());
+                    utility.hideProgress();
+                }
+            });
+        } catch (Exception e) {
+            utility.hideProgress();
+            Log.d("Error Line Number", Log.getStackTraceString(e));
         }
-    }*/
+    }
 
+    private void add_mylist(String m) {
+        try {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("id", m);
+            utility.showProgress(false, context.getResources().getString(R.string.wait_string));
+            Call<API_RESPONSE> call = apiInterface.add_to_mylist(utility.getAuthToken(), utility.getuserid(), hashMap);
+            call.enqueue(new Callback<API_RESPONSE>() {
+                @Override
+                public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {
+                    utility.hideProgress();
+                    try {
+                        utility.logger(response.toString());
+                        if (response.isSuccessful() && response.code() == 200 && response != null) {
+                            utility.logger("add my list " + response.body().toString());
+                            API_RESPONSE api_response = response.body();
+                            if (api_response.getCode() == 200) {
+                                utility.showDialog(api_response.getData().getAsString().toString());
+                            } else {
+                                utility.showDialog(api_response.getData().toString());
+                            }
+                        } else {
+                            utility.showToast(context.getResources().getString(R.string.something_went_wrong));
+                        }
+                    } catch (Exception e) {
+                        utility.hideProgress();
+                        Log.d("Failed to hit api", Log.getStackTraceString(e));
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<API_RESPONSE> call, Throwable t) {
+                    Log.d("On Failure to hit api", t.toString());
+                    utility.hideProgress();
+                }
+            });
+        } catch (Exception e) {
+            utility.hideProgress();
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }
 
+    private void add_tolike(String m) {
+        try {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("id", m);
+            utility.showProgress(false, context.getResources().getString(R.string.wait_string));
+            Call<API_RESPONSE> call = apiInterface.add_to_mylike(utility.getAuthToken(), utility.getuserid(), hashMap);
+            call.enqueue(new Callback<API_RESPONSE>() {
+                @Override
+                public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {
+                    utility.hideProgress();
+                    try {
+                        utility.logger(response.toString());
+                        if (response.isSuccessful() && response.code() == 200 && response != null) {
+                            utility.logger("add my like " + response.body().toString());
+                            API_RESPONSE api_response = response.body();
+                            if (api_response.getCode() == 200) {
+                                utility.showDialog(api_response.getData().getAsString().toString());
+                            } else {
+                                utility.showDialog(api_response.getData().toString());
+                            }
+                        } else {
+                            utility.showToast(context.getResources().getString(R.string.something_went_wrong));
+                        }
+                    } catch (Exception e) {
+                        utility.hideProgress();
+                        Log.d("Failed to hit api", Log.getStackTraceString(e));
+                    }
+                }
 
-
+                @Override
+                public void onFailure(Call<API_RESPONSE> call, Throwable t) {
+                    Log.d("On Failure to hit api", t.toString());
+                    utility.hideProgress();
+                }
+            });
+        } catch (Exception e) {
+            utility.hideProgress();
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }
 }

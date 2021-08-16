@@ -108,6 +108,16 @@ public class DashboaredPage extends Fragment {
                         }
                     }
                 });
+                binding.dashBanner.bannerInfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (bannerdata != null && navController != null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("content_details", gson.toJson(bannerdata));
+                            navController.navigate(R.id.player_frag, bundle);
+                        }
+                    }
+                });
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }

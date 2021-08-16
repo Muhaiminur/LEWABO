@@ -43,6 +43,10 @@ public interface ApiService {
     @POST("content/search")
     Call<API_RESPONSE> get_searchlist(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
 
+    //7 add to mylike
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("content/like/update")
+    Call<API_RESPONSE> add_to_mylike(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
 /*
     //2 user registration
     @POST("register")
