@@ -60,6 +60,22 @@ public class RecentPage extends Fragment {
                 utility = new Utility(context);
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
                 navController = navHostFragment.getNavController();
+                binding.recentProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.profilepage);
+                        }
+                    }
+                });
+                binding.recentSearch.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.search_frag);
+                        }
+                    }
+                });
                 initial_list();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));

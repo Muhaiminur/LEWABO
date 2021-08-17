@@ -153,6 +153,7 @@
                         app:backgroundTint="@null" />
 
                     <TextView
+                        android:id="@+id/reg4_pactittle1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -192,6 +193,7 @@
                         app:backgroundTint="@null" />
 
                     <TextView
+                        android:id="@+id/reg4_pactittle2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -230,6 +232,7 @@
                         app:backgroundTint="@null" />
 
                     <TextView
+                        android:id="@+id/reg4_pactittle3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"

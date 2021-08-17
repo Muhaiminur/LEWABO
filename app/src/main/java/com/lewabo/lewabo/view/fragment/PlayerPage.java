@@ -105,6 +105,30 @@ public class PlayerPage extends Fragment {
                         }
                     }
                 });
+                binding.playerBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.popBackStack();
+                        }
+                    }
+                });
+                binding.playerProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.profilepage);
+                        }
+                    }
+                });
+                binding.playerSearch.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.search_frag);
+                        }
+                    }
+                });
                 initial_related();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));

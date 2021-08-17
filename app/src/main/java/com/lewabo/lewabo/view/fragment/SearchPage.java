@@ -63,6 +63,23 @@ public class SearchPage extends Fragment {
                 utility = new Utility(context);
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.frag_homepage_view);
                 navController = navHostFragment.getNavController();
+                binding.searchBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.popBackStack();
+                        }
+                    }
+                });
+                binding.searchProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.profilepage);
+                        }
+                    }
+                });
+
                 initial_list();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));

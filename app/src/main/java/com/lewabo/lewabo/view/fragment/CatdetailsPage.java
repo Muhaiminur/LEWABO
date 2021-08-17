@@ -92,22 +92,6 @@ public class CatdetailsPage extends Fragment {
                         }
                         spinner();
                         initial_tag();
-                        binding.catdetailsSearch.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                if (navController != null) {
-                                    navController.navigate(R.id.search_frag);
-                                }
-                            }
-                        });
-                        binding.catdetailsProfile.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                if (navController != null) {
-                                    navController.navigate(R.id.profilepage);
-                                }
-                            }
-                        });
                         binding.catdetailsBanner.bannerAddlist.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -131,6 +115,31 @@ public class CatdetailsPage extends Fragment {
                                     Bundle bundle = new Bundle();
                                     bundle.putString("content_details", gson.toJson(bannerdata));
                                     navController.navigate(R.id.player_frag, bundle);
+                                }
+                            }
+                        });
+
+                        binding.catdetailsBack.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (navController != null) {
+                                    navController.popBackStack();
+                                }
+                            }
+                        });
+                        binding.catdetailsProfile.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (navController != null) {
+                                    navController.navigate(R.id.profilepage);
+                                }
+                            }
+                        });
+                        binding.catdetailsSearch.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (navController != null) {
+                                    navController.navigate(R.id.search_frag);
                                 }
                             }
                         });
@@ -325,6 +334,7 @@ public class CatdetailsPage extends Fragment {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
     }
+
     private void add_mylist(String m) {
         try {
             HashMap<String, String> hashMap = new HashMap<>();

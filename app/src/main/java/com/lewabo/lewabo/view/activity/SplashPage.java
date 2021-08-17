@@ -123,7 +123,7 @@ public class SplashPage extends AppCompatActivity {
     private void getlist() {
         try {
             utility.showProgress(false, context.getResources().getString(R.string.wait_string));
-            Call<API_RESPONSE> call = apiInterface.landing_list(utility.getAuthToken(), utility.getuserid());
+            Call<API_RESPONSE> call = apiInterface.landing_list(utility.getAuthToken());
             call.enqueue(new Callback<API_RESPONSE>() {
                 @Override
                 public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {

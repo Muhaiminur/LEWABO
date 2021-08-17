@@ -66,7 +66,7 @@ public interface ApiService {
     //11 get landing list
     @Headers({"Content-Type:application/json", "Accept: application/json"})
     @GET("content/image/all")
-    Call<API_RESPONSE> landing_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
+    Call<API_RESPONSE> landing_list(@Header("Authorization") String apiKey);
 
 
     //12 comming soon list
@@ -78,5 +78,10 @@ public interface ApiService {
     @Headers({"Content-Type:application/json", "Accept: application/json"})
     @POST("content/suggestion")
     Call<API_RESPONSE> get_suggestion_list(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
+
+    //14 get subscription list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @GET("subscription/plan/all")
+    Call<API_RESPONSE> get_sub_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
 
 }
