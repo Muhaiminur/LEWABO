@@ -53,4 +53,30 @@ public interface ApiService {
     @GET("genre/all")
     Call<API_RESPONSE> generi_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
 
+    //9 get recent list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @GET("content/log/all")
+    Call<API_RESPONSE> recent_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
+
+    //10 add to recent list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("content/log/add")
+    Call<API_RESPONSE> add_to_recent(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
+
+    //11 get landing list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @GET("content/image/all")
+    Call<API_RESPONSE> landing_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
+
+
+    //12 comming soon list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("content/category")
+    Call<API_RESPONSE> get_coming_soon(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
+
+    //13 suggestion list
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("content/suggestion")
+    Call<API_RESPONSE> get_suggestion_list(@Header("Authorization") String apiKey, @Header("userId") String usersId, @Body HashMap id);
+
 }

@@ -21,6 +21,7 @@
         app:cardMaxElevation="5dp">
 
         <LinearLayout
+            android:id="@+id/coming_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

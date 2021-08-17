@@ -119,7 +119,7 @@ public class PlayerPage extends Fragment {
             binding.playerRecycler.setLayoutManager(new GridLayoutManager(context, 3));
             binding.playerRecycler.setItemAnimator(new DefaultItemAnimator());
             binding.playerRecycler.setAdapter(adapter);
-            getmylist();
+            //getmylist();
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -128,15 +128,20 @@ public class PlayerPage extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (adapter != null) {
-            getmylist();
+        if (adapter != null && content != null) {
+            getmylist(content.getId().toString());
         }
     }
 
-    private void getmylist() {
+    private void getmylist(String p) {
         try {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("tagId", "");
+            hashMap.put("categoryId", "");
+            hashMap.put("genreId", "");
+            hashMap.put("contentId", p);
             utility.showProgress(false, context.getResources().getString(R.string.wait_string));
-            Call<API_RESPONSE> call = apiInterface.get_mylist(utility.getAuthToken(), utility.getuserid());
+            Call<API_RESPONSE> call = apiInterface.get_suggestion_list(utility.getAuthToken(), utility.getuserid(), hashMap);
             call.enqueue(new Callback<API_RESPONSE>() {
                 @Override
                 public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {

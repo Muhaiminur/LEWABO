@@ -8,13 +8,25 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.adapter.SliderAdapter;
+import com.lewabo.lewabo.data.LandingModel;
+import com.lewabo.lewabo.data.moviecontent.Content;
 import com.lewabo.lewabo.databinding.ActivitySplashBinding;
+import com.lewabo.lewabo.http.ApiService;
+import com.lewabo.lewabo.http.Controller;
+import com.lewabo.lewabo.utility.API_RESPONSE;
 import com.lewabo.lewabo.utility.Utility;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashPage extends AppCompatActivity {
 
@@ -23,6 +35,9 @@ public class SplashPage extends AppCompatActivity {
     Utility utility;
     SliderAdapter sliderAdapter;
     List<String> list = new ArrayList<>();
+
+    ApiService apiInterface = Controller.getBaseClient().create(ApiService.class);
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +69,23 @@ public class SplashPage extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (sliderAdapter != null) {
+            getlist();
+        }
+    }
+
     public void sliderwork() {
         try {
-            list.add("https://i.ibb.co/CsP7GLK/splash1.jpg");
+            /*list.add("https://i.ibb.co/CsP7GLK/splash1.jpg");
             list.add("https://i.ibb.co/jrpLk7h/DT-Flyer-4.jpg");
             list.add("https://i.ibb.co/LkWJsXC/What-She-Wrote-3by4.png");
             list.add("https://i.ibb.co/hWwgZBP/3-by-4-image-1280-1.jpg");
+            */
             sliderAdapter = new SliderAdapter(context);
-            sliderAdapter.renewItems(list);
+            //sliderAdapter.renewItems(list);
             binding.splashSlider.setSliderAdapter(sliderAdapter);
             binding.splashSlider.startAutoCycle();
         } catch (Exception e) {
@@ -94,5 +118,57 @@ public class SplashPage extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
+    private void getlist() {
+        try {
+            utility.showProgress(false, context.getResources().getString(R.string.wait_string));
+            Call<API_RESPONSE> call = apiInterface.landing_list(utility.getAuthToken(), utility.getuserid());
+            call.enqueue(new Callback<API_RESPONSE>() {
+                @Override
+                public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {
+                    utility.hideProgress();
+                    try {
+                        utility.logger(response.toString());
+                        if (response.isSuccessful() && response.code() == 200 && response != null) {
+                            utility.logger("landing list " + response.body().toString());
+                            API_RESPONSE api_response = response.body();
+                            if (api_response.getCode() == 200) {
+                                Type listType = new TypeToken<List<LandingModel>>() {
+                                }.getType();
+                                List<LandingModel> pList = gson.fromJson(api_response.getData().toString(), listType);
+                                utility.logger("Landing list" + pList.size());
+                                if (pList.size() > 0) {
+                                    list.clear();
+                                    for (LandingModel s : pList) {
+                                        list.add(s.getImage());
+                                    }
+                                    sliderAdapter.renewItems(list);
+                                } else {
+                                    list.clear();
+                                    sliderAdapter.notifyDataSetChanged();
+                                }
+                            } else {
+                                utility.showDialog(api_response.getData().toString());
+                            }
+                        } else {
+                            utility.showToast(context.getResources().getString(R.string.something_went_wrong));
+                        }
+                    } catch (Exception e) {
+                        utility.hideProgress();
+                        Log.d("Failed to hit api", Log.getStackTraceString(e));
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<API_RESPONSE> call, Throwable t) {
+                    Log.d("On Failure to hit api", t.toString());
+                    utility.hideProgress();
+                }
+            });
+        } catch (Exception e) {
+            utility.hideProgress();
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
     }
 }

@@ -13,9 +13,9 @@ public class Content {
     @SerializedName("image")
     @Expose
     private String image;
-    @SerializedName("thumbnail")
+    @SerializedName("releaseDate")
     @Expose
-    private String thumbnail;
+    private String releaseDate;
     @SerializedName("director")
     @Expose
     private String director;
@@ -31,21 +31,27 @@ public class Content {
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("trailer")
+    @Expose
+    private String trailer;
     @SerializedName("duration")
     @Expose
     private Integer duration;
-    @SerializedName("bannerImage")
-    @Expose
-    private String bannerImage;
     @SerializedName("genres")
     @Expose
     private List<Genre> genres = null;
     @SerializedName("catgeoryId")
     @Expose
     private Integer catgeoryId;
+    @SerializedName("hasLike")
+    @Expose
+    private String hasLike;
     @SerializedName("producer")
     @Expose
     private String producer;
+    @SerializedName("hasMyList")
+    @Expose
+    private String hasMyList;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -78,12 +84,12 @@ public class Content {
         this.image = image;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getDirector() {
@@ -126,20 +132,20 @@ public class Content {
         this.title = title;
     }
 
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
     public Integer getDuration() {
         return duration;
     }
 
     public void setDuration(Integer duration) {
         this.duration = duration;
-    }
-
-    public String getBannerImage() {
-        return bannerImage;
-    }
-
-    public void setBannerImage(String bannerImage) {
-        this.bannerImage = bannerImage;
     }
 
     public List<Genre> getGenres() {
@@ -158,12 +164,28 @@ public class Content {
         this.catgeoryId = catgeoryId;
     }
 
+    public String getHasLike() {
+        return hasLike;
+    }
+
+    public void setHasLike(String hasLike) {
+        this.hasLike = hasLike;
+    }
+
     public String getProducer() {
         return producer;
     }
 
     public void setProducer(String producer) {
         this.producer = producer;
+    }
+
+    public String getHasMyList() {
+        return hasMyList;
+    }
+
+    public void setHasMyList(String hasMyList) {
+        this.hasMyList = hasMyList;
     }
 
     public Integer getId() {
@@ -211,17 +233,19 @@ public class Content {
         return "Content{" +
                 "brief='" + brief + '\'' +
                 ", image='" + image + '\'' +
-                ", thumbnail='" + thumbnail + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
                 ", director='" + director + '\'' +
                 ", catgeoryTitle='" + catgeoryTitle + '\'' +
                 ", castBy=" + castBy +
                 ", resolutions=" + resolutions +
                 ", title='" + title + '\'' +
+                ", trailer='" + trailer + '\'' +
                 ", duration=" + duration +
-                ", bannerImage='" + bannerImage + '\'' +
                 ", genres=" + genres +
                 ", catgeoryId=" + catgeoryId +
+                ", hasLike='" + hasLike + '\'' +
                 ", producer='" + producer + '\'' +
+                ", hasMyList='" + hasMyList + '\'' +
                 ", id=" + id +
                 ", writer='" + writer + '\'' +
                 ", maturityRating='" + maturityRating + '\'' +
