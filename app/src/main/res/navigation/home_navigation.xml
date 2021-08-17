@@ -37,4 +37,9 @@
         android:name="com.lewabo.lewabo.view.fragment.PlayerPage"
         tools:layout="@layout/fragment_player_page" />
 
+    <fragment
+        android:id="@+id/catdetails_frag"
+        android:name="com.lewabo.lewabo.view.fragment.CatdetailsPage"
+        tools:layout="@layout/fragment_catdetails_page" />
+
 </navigation>

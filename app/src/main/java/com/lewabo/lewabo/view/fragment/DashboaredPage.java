@@ -118,6 +118,26 @@ public class DashboaredPage extends Fragment {
                         }
                     }
                 });
+                binding.dashMovies.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (bannerdata != null && navController != null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("cat_details", "1");
+                            navController.navigate(R.id.catdetails_frag, bundle);
+                        }
+                    }
+                });
+                binding.dashTvshows.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (bannerdata != null && navController != null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("cat_details", "2");
+                            navController.navigate(R.id.catdetails_frag, bundle);
+                        }
+                    }
+                });
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }
