@@ -78,6 +78,9 @@
     <string name="more_string">More Like This</string>
     <string name="allgen_string">All Generics</string>
     <string name="promore_string">Profiles &amp; more</string>
+    <string name="privacy_url">https://lewabo.com/contact-us/</string>
+    <string name="help_url">https://lewabo.com/contact-us/</string>
+    <string name="no_browser_string">No Browser Found</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
 </resources>

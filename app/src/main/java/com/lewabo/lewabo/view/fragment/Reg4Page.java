@@ -1,13 +1,18 @@
 package com.lewabo.lewabo.view.fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -21,6 +26,7 @@ import com.lewabo.lewabo.http.ApiService;
 import com.lewabo.lewabo.http.Controller;
 import com.lewabo.lewabo.utility.API_RESPONSE;
 import com.lewabo.lewabo.utility.Utility;
+import com.lewabo.lewabo.view.activity.LoginPage;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -40,6 +46,10 @@ public class Reg4Page extends Fragment {
     Gson gson = new Gson();
     List<SubPlan> list = new ArrayList<>();
 
+    String email = "";
+    String pass = "";
+    String planid = "1";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +64,53 @@ public class Reg4Page extends Fragment {
                 utility = new Utility(context);
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.freg_container_view);
                 navController = navHostFragment.getNavController();
-                binding.reg4Continue.setOnClickListener(new View.OnClickListener() {
+                if (getArguments() != null && getArguments().containsKey("email")) {
+                    email = getArguments().getString("email");
+                    pass = getArguments().getString("pass");
+                    if (!TextUtils.isEmpty(email)) {
+                        binding.reg4Continue.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("email", email);
+                                bundle.putString("pass", pass);
+                                bundle.putString("planid", planid);
+                                navController.navigate(R.id.reg5Fragment, bundle);
+                            }
+                        });
+                    } else {
+                        utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
+                    }
+                } else {
+                    utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
+                }
+                binding.reg4Privacy.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        navController.navigate(R.id.reg5Fragment);
+                        try {
+                            String url = context.getResources().getString(R.string.privacy_url);
+                            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                            builder.setToolbarColor(ContextCompat.getColor(context, R.color.red));
+                            CustomTabsIntent customTabsIntent = builder.build();
+                            customTabsIntent.launchUrl(context, Uri.parse(url));
+                        } catch (Exception e) {
+                            Log.d("Error Line Number", Log.getStackTraceString(e));
+                            try {
+                                Uri uri = Uri.parse(context.getResources().getString(R.string.privacy_url)); // missing 'http://' will cause crashed
+                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                context.startActivity(intent);
+                            } catch (Exception e2) {
+                                Log.d("Error Line Number", Log.getStackTraceString(e2));
+                                utility.showDialog(context.getResources().getString(R.string.no_browser_string));
+                            }
+                        }
+                    }
+                });
+                binding.reg4Login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(context, LoginPage.class));
+                        getActivity().finish();
                     }
                 });
                 pac_check();
@@ -75,6 +128,7 @@ public class Reg4Page extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if (binding.reg4Pac1.isChecked()) {
+                        planid = "1";
                         binding.reg4Pac1.setChecked(true);
                         binding.reg4Pac2.setChecked(false);
                         binding.reg4Pac3.setChecked(false);
@@ -85,6 +139,7 @@ public class Reg4Page extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if (binding.reg4Pac2.isChecked()) {
+                        planid = "2";
                         binding.reg4Pac1.setChecked(false);
                         binding.reg4Pac2.setChecked(true);
                         binding.reg4Pac3.setChecked(false);
@@ -95,6 +150,7 @@ public class Reg4Page extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if (binding.reg4Pac3.isChecked()) {
+                        planid = "3";
                         binding.reg4Pac1.setChecked(false);
                         binding.reg4Pac2.setChecked(false);
                         binding.reg4Pac3.setChecked(true);

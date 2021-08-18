@@ -3,6 +3,7 @@ package com.lewabo.lewabo.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -56,6 +57,14 @@ public class SplashPage extends AppCompatActivity {
                     finish();
                 }
             });
+            if (!TextUtils.isEmpty(utility.getuserid())) {
+                startActivity(new Intent(context, HomePage.class));
+                finish();
+            } else {
+                if (sliderAdapter != null) {
+                    getlist();
+                }
+            }
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -72,9 +81,6 @@ public class SplashPage extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        if (sliderAdapter != null) {
-            getlist();
-        }
     }
 
     public void sliderwork() {

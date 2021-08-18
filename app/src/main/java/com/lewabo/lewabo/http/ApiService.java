@@ -87,6 +87,11 @@ public interface ApiService {
     //15 Payment 1
     @Headers({"Content-Type:application/json", "Accept: application/json"})
     @POST("payment-intent")
-    Call<API_RESPONSE> get_payment_client(@Header("Authorization") String apiKey, @Body HashMap id);
+    Call<API_RESPONSE> get_payment_client(@Header("Authorization") String apiKey, @Body HashMap id); //15 Payment 1
+
+    //16 set registration
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("registration")
+    Call<API_RESPONSE> set_registration(@Header("Authorization") String apiKey, @Body HashMap id);
 
 }

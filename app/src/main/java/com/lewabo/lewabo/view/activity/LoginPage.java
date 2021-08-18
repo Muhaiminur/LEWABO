@@ -2,12 +2,15 @@ package com.lewabo.lewabo.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 import com.lewabo.lewabo.R;
@@ -64,6 +67,28 @@ public class LoginPage extends AppCompatActivity {
                     } else {
                         binding.userMobile.setError(context.getResources().getString(R.string.email_string));
                         binding.userMobile.requestFocusFromTouch();
+                    }
+                }
+            });
+            binding.loginHelp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        String url = context.getResources().getString(R.string.help_url);
+                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                        builder.setToolbarColor(ContextCompat.getColor(context, R.color.red));
+                        CustomTabsIntent customTabsIntent = builder.build();
+                        customTabsIntent.launchUrl(context, Uri.parse(url));
+                    } catch (Exception e) {
+                        Log.d("Error Line Number", Log.getStackTraceString(e));
+                        try {
+                            Uri uri = Uri.parse(context.getResources().getString(R.string.privacy_url)); // missing 'http://' will cause crashed
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            context.startActivity(intent);
+                        } catch (Exception e2) {
+                            Log.d("Error Line Number", Log.getStackTraceString(e2));
+                            utility.showDialog(context.getResources().getString(R.string.no_browser_string));
+                        }
                     }
                 }
             });
