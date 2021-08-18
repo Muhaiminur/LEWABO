@@ -82,6 +82,11 @@ public interface ApiService {
     //14 get subscription list
     @Headers({"Content-Type:application/json", "Accept: application/json"})
     @GET("subscription/plan/all")
-    Call<API_RESPONSE> get_sub_list(@Header("Authorization") String apiKey, @Header("userId") String usersId);
+    Call<API_RESPONSE> get_sub_list(@Header("Authorization") String apiKey);
+
+    //15 Payment 1
+    @Headers({"Content-Type:application/json", "Accept: application/json"})
+    @POST("payment-intent")
+    Call<API_RESPONSE> get_payment_client(@Header("Authorization") String apiKey, @Body HashMap id);
 
 }

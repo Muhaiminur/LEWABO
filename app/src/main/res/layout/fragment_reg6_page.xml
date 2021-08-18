@@ -1,11 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".view.fragment.Reg6Page">
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/reg6_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_fulllogo"
+            app:layout_constraintEnd_toStartOf="@+id/reg6_privacy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reg6_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:gravity="end"
+            android:padding="5dp"
+            android:text="@string/privacy_string"
+            android:textColor="@color/app_black1"
+            android:textSize="@dimen/font_xl"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/reg6_login"
+            app:layout_constraintStart_toEndOf="@+id/reg6_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reg6_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:gravity="end"
+            android:padding="5dp"
+            android:text="@string/signin_string"
+            android:textColor="@color/app_black1"
+            android:textSize="@dimen/font_xl"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reg6_privacy"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg6_logo">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:text="@string/reg51_string"
+                android:textAlignment="textStart"
+                android:textColor="@color/app_black1"
+                android:textSize="@dimen/font_l"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:text="@string/reg62_string"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/font_extreme"
+                android:textStyle="bold" />
+
+            <com.stripe.android.view.CardInputWidget
+                android:id="@+id/cardInputWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rectangular_red_border_white"
+                app:layout_constraintBottom_toTopOf="@+id/payButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="@string/reg63_string"
+                android:textAlignment="textStart"
+                android:textColor="@color/app_black1"
+                android:textSize="@dimen/font_xl"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/reg6_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="false"
+                android:text="@string/reg64_string"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_xl"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reg6_paynow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:background="@drawable/rectangular_red"
+                android:padding="5dp"
+                android:text="@string/reg65_string"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_big"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

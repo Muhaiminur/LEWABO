@@ -56,6 +56,10 @@
     <string name="reg52_string">Set up your payment</string>
     <string name="reg53_string">your membership starts as soon as you set up payment.</string>
     <string name="reg54_string">No commitments. cancel online at any time</string>
+    <string name="reg62_string">set up your credit or debit card</string>
+    <string name="reg63_string">By ticking the tickbox below, you agree to our Terms of Use, Privacy Statement, and that you are over 18. Lewabo will automatically continue your membership and charge the monthly membership fee to your payment method until you cancel. You may cancel at any time to avoid future charges..</string>
+    <string name="reg64_string">I agree.</string>
+    <string name="reg65_string">start membership</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

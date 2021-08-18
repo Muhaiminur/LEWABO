@@ -38,6 +38,15 @@ public class Reg5Page extends Fragment {
                 utility = new Utility(context);
                 navHostFragment = (NavHostFragment) ((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.freg_container_view);
                 navController = navHostFragment.getNavController();
+                binding.reg5Continue.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (navController != null) {
+                            navController.navigate(R.id.reg6Fragment);
+                        }
+
+                    }
+                });
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }
