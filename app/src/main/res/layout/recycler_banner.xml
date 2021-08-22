@@ -12,9 +12,10 @@
             android:id="@+id/banner_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_loading" />
+            android:src="@drawable/ic_default" />
 
         <!--<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/banner_catlist"

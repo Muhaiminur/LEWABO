@@ -72,8 +72,7 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
             utility.logger("check" + bodyResponse);
             Glide.with(context)
                     .load(bodyResponse.getImage())
-                    .fitCenter()
-                    .error(context.getResources().getDrawable(R.drawable.ic_loading))
+                    .error(context.getResources().getDrawable(R.drawable.ic_default))
                     .into(holder.historyBinding.tagMovieImage);
 
             holder.historyBinding.tagMovieImage.setOnClickListener(new View.OnClickListener() {

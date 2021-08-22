@@ -235,14 +235,14 @@ public class Utility {
 
     public RequestOptions Glide_Cache_On() {
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.error(R.drawable.ic_loading);
+        requestOptions.error(R.drawable.ic_default);
         return requestOptions;
     }
 
     public RequestOptions Glide_Cache_Off() {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_loading);
-        requestOptions.error(R.drawable.ic_loading);
+        requestOptions.error(R.drawable.ic_default);
         requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
         requestOptions.skipMemoryCache(true);
         return requestOptions;

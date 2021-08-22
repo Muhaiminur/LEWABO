@@ -20,7 +20,7 @@
             android:id="@+id/dmylist_image"
             android:layout_width="180dp"
             android:layout_height="150dp"
-            android:background="@drawable/ic_loading"
+            android:background="@drawable/ic_default"
             android:contentDescription="@string/app_name" />
 
         <LinearLayout

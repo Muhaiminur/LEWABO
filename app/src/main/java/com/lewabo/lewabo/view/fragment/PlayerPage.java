@@ -73,7 +73,7 @@ public class PlayerPage extends Fragment {
                         binding.playerTittle.setText(content.getTitle());
                         binding.playerDescription.setText(content.getBrief());
                         Glide.with(context)
-                                .load(content.getImage()).error(R.drawable.ic_loading).into(binding.playerImage);
+                                .load(content.getImage()).error(R.drawable.ic_default).into(binding.playerImage);
                     } else {
                         utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
                     }
