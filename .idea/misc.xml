@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/bottombar_shadow.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/edithint.xml" value="0.2046875" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_default.xml" value="0.1125" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_lock.xml" value="0.2046875" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/drawable/ic_my_list.xml" value="0.2046875" />
@@ -14,8 +15,11 @@
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_home_page.xml" value="0.18" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_landing_page.xml" value="0.20416666666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_login_page.xml" value="0.1925925925925926" />
-        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_player_details.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_player_details.xml" value="0.18" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/activity_registration_page.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/customex_playback_control_view.xml" value="0.25" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/customexo_playback_control_view.xml" value="0.14" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/dialog_details.xml" value="0.22" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/dialog_exit.xml" value="0.18854166666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/dialog_mylist.xml" value="0.33" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/dialog_tagdialog.xml" value="0.33" />
@@ -42,6 +46,7 @@
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/recycler_search.xml" value="0.20416666666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/recycler_slider.xml" value="0.20416666666666666" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/recycler_tag_movie.xml" value="0.1" />
+        <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/layout/recycler_text.xml" value="0.25" />
         <entry key="..\:/ABIR/ANDROID/LEWABO/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>

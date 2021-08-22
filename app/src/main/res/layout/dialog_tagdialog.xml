@@ -3,11 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    app:cardBackgroundColor="@android:color/transparent"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="5dp"
-    app:cardMaxElevation="5dp">
+    app:cardBackgroundColor="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,13 +84,29 @@
                     android:background="@drawable/ic_playrec"
                     app:backgroundTint="@null" />
 
-                <com.google.android.material.button.MaterialButton
+                <LinearLayout
                     android:id="@+id/dmylist_info"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/ic_info"
-                    app:backgroundTint="@null" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@drawable/ic_info2"
+                        app:backgroundTint="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_string"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_s"
+                        android:textStyle="normal" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -1,5 +1,6 @@
 package com.lewabo.lewabo.view.fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,17 +18,23 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.adapter.MylistAdapter;
+import com.lewabo.lewabo.adapter.TextAdapter;
 import com.lewabo.lewabo.data.moviecontent.Content;
+import com.lewabo.lewabo.data.moviecontent.Genre;
 import com.lewabo.lewabo.databinding.FragmentPlayerPageBinding;
 import com.lewabo.lewabo.http.ApiService;
 import com.lewabo.lewabo.http.Controller;
 import com.lewabo.lewabo.utility.API_RESPONSE;
+import com.lewabo.lewabo.utility.KeyWord;
 import com.lewabo.lewabo.utility.Utility;
 import com.lewabo.lewabo.view.activity.PlayerDetails;
 
@@ -69,7 +79,7 @@ public class PlayerPage extends Fragment {
                     content = gson.fromJson(getArguments().getString("content_details"), Content.class);
                     if (content != null) {
                         utility.logger("content details" + content.toString());
-                        binding.playerDate.setText(content.getDuration() + "min " + content.getLikes().toString() + "likes");
+                        binding.playerDate.setText(utility.Hourtomin(content.getDuration()) + " - " + content.getLikes().toString() + "likes");
                         binding.playerTittle.setText(content.getTitle());
                         binding.playerDescription.setText(content.getBrief());
                         Glide.with(context)
@@ -126,6 +136,14 @@ public class PlayerPage extends Fragment {
                     public void onClick(View view) {
                         if (navController != null) {
                             navController.navigate(R.id.search_frag);
+                        }
+                    }
+                });
+                binding.playerMore.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (content != null) {
+                            showdetails(content);
                         }
                     }
                 });
@@ -290,6 +308,75 @@ public class PlayerPage extends Fragment {
             });
         } catch (Exception e) {
             utility.hideProgress();
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }
+
+    public void showdetails(Content content) {
+        try {
+
+            HashMap<String, Integer> screen = utility.getScreenRes();
+            int width = screen.get(KeyWord.SCREEN_WIDTH);
+            int height = screen.get(KeyWord.SCREEN_HEIGHT);
+            int mywidth = (width / 10) * 9;
+            final Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            dialog.setContentView(R.layout.dialog_details);
+            MaterialButton close = dialog.findViewById(R.id.details_close);
+            TextView tvMessage = dialog.findViewById(R.id.details_name);
+            RecyclerView cast = dialog.findViewById(R.id.details_cast_recycler);
+            RecyclerView director = dialog.findViewById(R.id.details_cast_recycler);
+            RecyclerView write = dialog.findViewById(R.id.details_writer_recycler);
+            RecyclerView genre = dialog.findViewById(R.id.details_genres_recycler);
+            LinearLayout ll = dialog.findViewById(R.id.dialog_layout_size);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) ll.getLayoutParams();
+            params.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+            params.width = mywidth;
+            ll.setLayoutParams(params);
+            tvMessage.setText(content.getTitle());
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            List<String> writerlist = new ArrayList<>();
+            List<String> direclist = new ArrayList<>();
+            List<String> genlist = new ArrayList<>();
+            writerlist.add(content.getWriter());
+            direclist.add(content.getDirector());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            TextAdapter castadapter = new TextAdapter(content.getCastBy(), context);
+            cast.setLayoutManager(mLayoutManager);
+            cast.setItemAnimator(new DefaultItemAnimator());
+            cast.setAdapter(castadapter);
+
+            TextAdapter writeradapter = new TextAdapter(writerlist, context);
+            RecyclerView.LayoutManager mLayoutManager1 = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            write.setLayoutManager(mLayoutManager1);
+            write.setItemAnimator(new DefaultItemAnimator());
+            write.setAdapter(writeradapter);
+
+            TextAdapter direcadapter = new TextAdapter(direclist, context);
+            RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            director.setLayoutManager(mLayoutManager2);
+            director.setItemAnimator(new DefaultItemAnimator());
+            director.setAdapter(direcadapter);
+
+            for (Genre g : content.getGenres()) {
+                genlist.add(g.getTitle());
+            }
+            TextAdapter genres = new TextAdapter(genlist, context);
+            RecyclerView.LayoutManager mLayoutManager3 = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+            genre.setLayoutManager(mLayoutManager3);
+            genre.setItemAnimator(new DefaultItemAnimator());
+            genre.setAdapter(genres);
+
+            dialog.setCancelable(false);
+            dialog.show();
+        } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
     }

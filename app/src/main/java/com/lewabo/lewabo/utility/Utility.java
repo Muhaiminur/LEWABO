@@ -306,4 +306,18 @@ public class Utility {
         sharedPref.edit().clear().commit();
     }
 
+
+    public String Hourtomin(int i) {
+        String re = "";
+        try {
+            int hours = i / 60; //since both are ints, you get an int
+            int minutes = i % 60;
+            re = hours + "h" + minutes + "min";
+            //re=hours+":"+minutes+"min";
+
+        } catch (Exception e) {
+
+        }
+        return re;
+    }
 }

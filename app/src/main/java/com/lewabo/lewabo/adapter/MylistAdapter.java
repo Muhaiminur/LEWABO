@@ -124,7 +124,7 @@ public class MylistAdapter extends RecyclerView.Adapter<MylistAdapter.Todo_View_
                 }
             });
             tittle.setText(con.getTitle());
-            time.setText(con.getCatgeoryTitle() + " " + con.getDuration().toString() + "min");
+            time.setText(con.getCatgeoryTitle() + " " + utility.Hourtomin(con.getDuration()));
             subtittle.setText(con.getBrief());
             play.setOnClickListener(new View.OnClickListener() {
                 @Override

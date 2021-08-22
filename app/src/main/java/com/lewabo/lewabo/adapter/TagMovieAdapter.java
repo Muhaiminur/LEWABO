@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -116,7 +117,7 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
             TextView time = dialog.findViewById(R.id.dmylist_time);
             TextView subtittle = dialog.findViewById(R.id.dmylist_description);
             MaterialButton play = dialog.findViewById(R.id.dmylist_play);
-            MaterialButton info = dialog.findViewById(R.id.dmylist_info);
+            LinearLayout info = dialog.findViewById(R.id.dmylist_info);
             Glide.with(context)
                     .load(con.getImage())
                     .fitCenter()
@@ -128,7 +129,7 @@ public class TagMovieAdapter extends RecyclerView.Adapter<TagMovieAdapter.Todo_V
                 }
             });
             tittle.setText(con.getTitle());
-            time.setText(con.getCatgeoryTitle() + " " + con.getDuration().toString() + "min");
+            time.setText(con.getCatgeoryTitle() + " " + utility.Hourtomin(con.getDuration()));
             subtittle.setText(con.getBrief());
             play.setOnClickListener(new View.OnClickListener() {
                 @Override

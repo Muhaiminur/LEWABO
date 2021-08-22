@@ -115,7 +115,8 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/rectangular_ash_border_black"
                 app:boxBackgroundMode="none"
-                app:hintEnabled="false">
+                app:hintEnabled="false"
+                android:hint=" ">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/user_mobile"

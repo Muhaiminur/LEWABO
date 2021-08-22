@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,6 +42,8 @@ public class PlayerDetails extends AppCompatActivity implements Player.Listener,
     Handler mHandler;
     Runnable mRunnable;
 
+    ImageView close;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,19 @@ public class PlayerDetails extends AppCompatActivity implements Player.Listener,
             binding.videoFullScreenPlayer.setShutterBackgroundColor(Color.TRANSPARENT);
             setUp();
             add_torecent(videoUri);
+            close = binding.videoFullScreenPlayer.findViewById(R.id.exo_close);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            binding.videoClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -154,15 +170,18 @@ public class PlayerDetails extends AppCompatActivity implements Player.Listener,
 
             case Player.STATE_BUFFERING:
                 binding.spinnerVideoDetails.setVisibility(View.VISIBLE);
+                binding.videoClose.setVisibility(View.VISIBLE);
                 break;
             case Player.STATE_ENDED:
                 // Activate the force enable
+                binding.videoClose.setVisibility(View.VISIBLE);
                 break;
             case Player.STATE_IDLE:
-
+                binding.videoClose.setVisibility(View.GONE);
                 break;
             case Player.STATE_READY:
                 binding.spinnerVideoDetails.setVisibility(View.GONE);
+                binding.videoClose.setVisibility(View.GONE);
                 player.play();
                 break;
             default:

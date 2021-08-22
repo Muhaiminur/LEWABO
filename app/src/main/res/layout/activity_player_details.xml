@@ -16,7 +16,7 @@
             android:focusable="true"
             android:keepScreenOn="true"
             android:padding="0dp"
-            app:controller_layout_id="@layout/exo_player_control_view"
+            app:controller_layout_id="@layout/customex_playback_control_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -28,8 +28,8 @@
             app:repeat_toggle_modes="none"
             app:resize_mode="fill"
             app:show_timeout="7000"
-            app:surface_type="texture_view"
-            app:use_controller="true" />
+            app:surface_type="surface_view"
+            app:use_controller="true"/>
 
         <ProgressBar
             android:id="@+id/spinnerVideoDetails"
@@ -56,6 +56,17 @@
             android:textColor="@android:color/white"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/video_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="7dp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTint="@null"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

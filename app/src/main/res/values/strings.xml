@@ -28,6 +28,7 @@
     <string name="signup_string"><u>Sigh up now.</u></string>
     <string name="signout_string">Sign Out</string>
     <string name="share_string">Share App</string>
+    <string name="share2_string">Share</string>
     <string name="continue_string">continue</string>
     <string name="steap1_string">STEP 1 of 3</string>
     <string name="setup_string">Set up your account</string>
@@ -76,11 +77,16 @@
     <string name="subsexpired_string">Your Subscription Expired</string>
     <string name="search_hint">Search for a show, movie</string>
     <string name="more_string">More Like This</string>
+    <string name="more2_string">More</string>
     <string name="allgen_string">All Generics</string>
     <string name="promore_string">Profiles &amp; more</string>
     <string name="privacy_url">https://lewabo.com/contact-us/</string>
     <string name="help_url">https://lewabo.com/contact-us/</string>
     <string name="no_browser_string">No Browser Found</string>
+    <string name="like">Like</string>
+    <string name="cast">Cast</string>
+    <string name="director">Directors</string>
+    <string name="writer">Writers</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
 </resources>

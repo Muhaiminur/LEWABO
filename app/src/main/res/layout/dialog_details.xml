@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dialog_layout_size"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangular_red_border_black"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/details_close"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="end"
+            android:layout_margin="3dp"
+            android:background="@drawable/ic_close"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:id="@+id/details_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xl"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/details_cast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/cast"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_m"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_cast_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/details_director"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/director"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_m"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_director_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/details_writer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/writer"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_m"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_writer_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/details_gen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/getstart_string"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_m"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_genres_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
