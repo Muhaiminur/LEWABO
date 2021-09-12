@@ -128,15 +128,17 @@ public class SplashPage extends AppCompatActivity {
 
     private void getlist() {
         try {
-            utility.showProgress(false, context.getResources().getString(R.string.wait_string));
+            //utility.showProgress(false, context.getResources().getString(R.string.wait_string));
             Call<API_RESPONSE> call = apiInterface.landing_list(utility.getAuthToken());
             call.enqueue(new Callback<API_RESPONSE>() {
                 @Override
                 public void onResponse(Call<API_RESPONSE> call, Response<API_RESPONSE> response) {
-                    utility.hideProgress();
+                    //utility.hideProgress();
                     try {
                         utility.logger(response.toString());
                         if (response.isSuccessful() && response.code() == 200 && response != null) {
+                            binding.splashFirst.setVisibility(View.GONE);
+                            binding.splashSecond.setVisibility(View.VISIBLE);
                             utility.logger("landing list " + response.body().toString());
                             API_RESPONSE api_response = response.body();
                             if (api_response.getCode() == 200) {
@@ -161,7 +163,7 @@ public class SplashPage extends AppCompatActivity {
                             utility.showToast(context.getResources().getString(R.string.something_went_wrong));
                         }
                     } catch (Exception e) {
-                        utility.hideProgress();
+                        //utility.hideProgress();
                         Log.d("Failed to hit api", Log.getStackTraceString(e));
                     }
                 }
@@ -169,11 +171,11 @@ public class SplashPage extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<API_RESPONSE> call, Throwable t) {
                     Log.d("On Failure to hit api", t.toString());
-                    utility.hideProgress();
+                    //utility.hideProgress();
                 }
             });
         } catch (Exception e) {
-            utility.hideProgress();
+            //utility.hideProgress();
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
     }
