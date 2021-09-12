@@ -36,6 +36,7 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/rectangular_blue"
             app:boxBackgroundMode="none"
+            android:hint=" "
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -45,8 +46,6 @@
                 android:background="@null"
                 android:drawablePadding="15dp"
                 android:hint="@string/email_string"
-                android:inputType="phone"
-                android:maxLength="11"
                 android:padding="15dp"
                 android:textAlignment="textStart"
                 android:textColorHint="@color/white"
@@ -108,6 +107,7 @@
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/login_remember"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -118,6 +118,7 @@
                 android:textStyle="normal" />
 
             <TextView
+                android:id="@+id/login_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"

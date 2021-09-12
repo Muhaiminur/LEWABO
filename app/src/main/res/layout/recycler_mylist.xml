@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_margin="5dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="5dp">
@@ -22,6 +22,7 @@
             android:layout_height="100dp"
             android:contentDescription="@string/privacy_string"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_loading" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_default" />
     </androidx.cardview.widget.CardView>
 </layout>

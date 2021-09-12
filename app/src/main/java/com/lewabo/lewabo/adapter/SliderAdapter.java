@@ -50,7 +50,6 @@ public class SliderAdapter extends
         String sliderItem = mSliderItems.get(position);
         Glide.with(viewHolder.itemView)
                 .load(sliderItem.toString())
-                .fitCenter()
                 .into(viewHolder.imageViewBackground);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

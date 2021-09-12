@@ -235,14 +235,14 @@ public class Utility {
 
     public RequestOptions Glide_Cache_On() {
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.error(R.drawable.ic_loading);
+        requestOptions.error(R.drawable.ic_default);
         return requestOptions;
     }
 
     public RequestOptions Glide_Cache_Off() {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_loading);
-        requestOptions.error(R.drawable.ic_loading);
+        requestOptions.error(R.drawable.ic_default);
         requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
         requestOptions.skipMemoryCache(true);
         return requestOptions;
@@ -266,22 +266,58 @@ public class Utility {
         return versionCode;
     }
 
-    public void setFirebaseToken(String token) {
-        SharedPreferences sharedPref = context.getSharedPreferences("FCM", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("token", token);
-        editor.commit();
-    }
 
-    public String getFirebaseToken() {
-        SharedPreferences sharedPref = context.getSharedPreferences("FCM", Context.MODE_PRIVATE);
-        return sharedPref.getString("token", "");
-    }
-
-    public void setAuthToken(String token) {
+    public void setuserid(String token) {
         SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("auth_token", token);
         editor.commit();
+    }
+
+    public String getuserid() {
+        SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+        return sharedPref.getString("auth_token", "");
+    }
+
+    public void clearuserid() {
+        SharedPreferences sharedPref = context.getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().commit();
+    }
+
+
+    public String getAuthToken() {
+        return "Basic TGV3YWJvOkxld0BibyQxMjMjJA==";
+    }
+
+    public void setUserprofile(String token) {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("user_profile", token);
+        editor.commit();
+    }
+
+    public String getUserprofile() {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        return sharedPref.getString("user_profile", "");
+    }
+
+    public void clearUserprofile() {
+        SharedPreferences sharedPref = context.getSharedPreferences("USER", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().commit();
+    }
+
+
+    public String Hourtomin(int i) {
+        String re = "";
+        try {
+            int hours = i / 60; //since both are ints, you get an int
+            int minutes = i % 60;
+            re = hours + "h" + minutes + "min";
+            //re=hours+":"+minutes+"min";
+
+        } catch (Exception e) {
+
+        }
+        return re;
     }
 }

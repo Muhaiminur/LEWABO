@@ -11,6 +11,11 @@
     <string name="something_went_wrong">Can Not Connect With Server</string>
     <string name="admin_string">Contact With Admin</string>
 
+    <string name="wrong_passeord_string">Wrong Password or Mobile Number</string>
+    <string name="network_available">Internet Available</string>
+    <string name="validation_string">Please Check All Input</string>
+    <string name="network_not_available">Internet is not available</string>
+
     <string name="getstart_string">Get Started</string>
     <string name="privacy_string">Privacy</string>
     <string name="signin_string">Sign in</string>
@@ -21,6 +26,9 @@
     <string name="loginfb_string">login  with facebook</string>
     <string name="new_string">New to lewabo?</string>
     <string name="signup_string"><u>Sigh up now.</u></string>
+    <string name="signout_string">Sign Out</string>
+    <string name="share_string">Share App</string>
+    <string name="share2_string">Share</string>
     <string name="continue_string">continue</string>
     <string name="steap1_string">STEP 1 of 3</string>
     <string name="setup_string">Set up your account</string>
@@ -49,6 +57,10 @@
     <string name="reg52_string">Set up your payment</string>
     <string name="reg53_string">your membership starts as soon as you set up payment.</string>
     <string name="reg54_string">No commitments. cancel online at any time</string>
+    <string name="reg62_string">set up your credit or debit card</string>
+    <string name="reg63_string">By ticking the tickbox below, you agree to our Terms of Use, Privacy Statement, and that you are over 18. Lewabo will automatically continue your membership and charge the monthly membership fee to your payment method until you cancel. You may cancel at any time to avoid future charges..</string>
+    <string name="reg64_string">I agree.</string>
+    <string name="reg65_string">start membership</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -62,6 +74,19 @@
     <string name="come_string">Coming Soon</string>
     <string name="recent_string">Recent View</string>
     <string name="top_string">Top Searches</string>
+    <string name="subsexpired_string">Your Subscription Expired</string>
+    <string name="search_hint">Search for a show, movie</string>
+    <string name="more_string">More Like This</string>
+    <string name="more2_string">More</string>
+    <string name="allgen_string">All Generics</string>
+    <string name="promore_string">Profiles &amp; more</string>
+    <string name="privacy_url">https://lewabo.com/contact-us/</string>
+    <string name="help_url">https://lewabo.com/contact-us/</string>
+    <string name="no_browser_string">No Browser Found</string>
+    <string name="like">Like</string>
+    <string name="cast">Cast</string>
+    <string name="director">Directors</string>
+    <string name="writer">Writers</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
 </resources>

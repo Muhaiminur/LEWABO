@@ -271,7 +271,7 @@
 						"header": [
 							{
 								"key": "userId",
-								"value": "1",
+								"value": "3",
 								"type": "text"
 							}
 						],
@@ -324,7 +324,7 @@
 							{
 								"key": "userId",
 								"type": "text",
-								"value": "1"
+								"value": "3"
 							}
 						],
 						"body": {
@@ -363,13 +363,13 @@
 							"type": "basic",
 							"basic": [
 								{
-									"key": "username",
-									"value": "Lewabo",
+									"key": "password",
+									"value": "Lew@bo$123#$",
 									"type": "string"
 								},
 								{
-									"key": "password",
-									"value": "Lew@bo$123#$",
+									"key": "username",
+									"value": "Lewabo",
 									"type": "string"
 								}
 							]
@@ -379,7 +379,7 @@
 							{
 								"key": "userId",
 								"type": "text",
-								"value": "1"
+								"value": "3"
 							}
 						],
 						"body": {
@@ -402,6 +402,118 @@
 								"lewabo",
 								"content",
 								"me",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "log",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"281\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/content/log/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"content",
+								"log",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"type": "text",
+								"value": "3"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/content/log/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"content",
+								"log",
 								"all"
 							]
 						}
@@ -565,10 +677,10 @@
 			]
 		},
 		{
-			"name": "tag",
+			"name": "stripe",
 			"item": [
 				{
-					"name": "all",
+					"name": "registration",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -589,7 +701,168 @@
 						"header": [
 							{
 								"key": "userId",
-								"value": "2",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"pi_3JP4AB2eZvKYlo2C0LkxC9jt\",\n    \"password\" : \"test\",\n    \"planId\" : \"1\",\n    \"email\" : \"atiq@test.com\",\n    \"name\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://lewabo-env.eba-jji6q3hr.us-east-2.elasticbeanstalk.com/lewabo/registration",
+							"protocol": "http",
+							"host": [
+								"lewabo-env",
+								"eba-jji6q3hr",
+								"us-east-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"lewabo",
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payment-intent",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"planId\" : \"1\",\n    \"email\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/payment-intent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"payment-intent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"type": "text",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"pi_3JP0lD2eZvKYlo2C0Ik6XTDK_secret_2zZ0EuDUX8GhhiHa36XOkmreA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"item": [
+				{
+					"name": "all ( pagination )",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "3",
 								"type": "text"
 							}
 						],
@@ -720,6 +993,113 @@
 								"lewabo",
 								"content",
 								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image all (pagination)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"type": "text",
+								"value": "3",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/content/image/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"content",
+								"image",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "suggestion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "Lewabo",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Lew@bo$123#$",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"type": "text",
+								"value": "3"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tagId\" : \"\",\n    \"categoryId\" : \"\",\n    \"genreId\" : \"\",\n    \"contentId\": \"280\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/lewabo/content/suggestion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"lewabo",
+								"content",
+								"suggestion"
 							]
 						}
 					},

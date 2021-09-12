@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.data.TagModel;
+import com.lewabo.lewabo.data.moviecontent.Content;
+import com.lewabo.lewabo.data.moviecontent.Tagdata;
 import com.lewabo.lewabo.databinding.RecyclerTagBinding;
 import com.lewabo.lewabo.utility.Utility;
 
@@ -20,11 +22,11 @@ import java.util.List;
 
 public class TagAdapter extends RecyclerView.Adapter<TagAdapter.Todo_View_Holder> {
     Context context;
-    List<TagModel> list;
+    List<Tagdata> list;
     Utility utility;
 
 
-    public TagAdapter(List<TagModel> to, Context c) {
+    public TagAdapter(List<Tagdata> to, Context c) {
         list = to;
         context = c;
         utility = new Utility(context);
@@ -38,7 +40,7 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.Todo_View_Holder
             this.historyBinding = view;
         }
 
-        public void bind(TagModel s) {
+        public void bind(Tagdata s) {
             //historyBinding.setHistory(deliveryModel);
             historyBinding.executePendingBindings();
         }
@@ -52,17 +54,18 @@ public class TagAdapter extends RecyclerView.Adapter<TagAdapter.Todo_View_Holder
 
     @Override
     public void onBindViewHolder(final TagAdapter.Todo_View_Holder holder, int position) {
-        final TagModel bodyResponse = list.get(position);
+        final Tagdata bodyResponse = list.get(position);
         try {
             holder.bind(bodyResponse);
-            holder.historyBinding.tagName.setText(bodyResponse.getTagname());
-            List<String> movielist = new ArrayList<>();
-            movielist.addAll(bodyResponse.getTagmovie());
+            holder.historyBinding.tagName.setText(bodyResponse.getTitle());
+            List<Content> movielist = new ArrayList<>();
+            movielist.addAll(bodyResponse.getContents());
             TagMovieAdapter taglistMovieAdapter = new TagMovieAdapter(movielist, context);
             LinearLayoutManager mLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             holder.historyBinding.tagRecycler.setLayoutManager(mLayoutManager);
             holder.historyBinding.tagRecycler.setItemAnimator(new DefaultItemAnimator());
             holder.historyBinding.tagRecycler.setAdapter(taglistMovieAdapter);
+            taglistMovieAdapter.notifyDataSetChanged();
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }

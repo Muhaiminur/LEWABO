@@ -21,6 +21,7 @@
         app:cardMaxElevation="5dp">
 
         <LinearLayout
+            android:id="@+id/coming_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -31,7 +32,7 @@
                 android:layout_height="150dp"
                 android:contentDescription="@string/privacy_string"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_loading" />
+                android:src="@drawable/ic_default" />
 
             <View
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
                     android:layout_margin="5dp"
                     android:contentDescription="@string/privacy_string"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_loading" />
+                    android:src="@drawable/ic_default" />
 
                 <View
                     android:layout_width="0dp"

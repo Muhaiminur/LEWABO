@@ -115,17 +115,17 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/rectangular_ash_border_black"
                 app:boxBackgroundMode="none"
-                app:hintEnabled="false">
+                app:hintEnabled="false"
+                android:hint=" ">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reg2_mobile"
+                    android:id="@+id/user_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:drawablePadding="15dp"
                     android:hint="@string/email_string"
-                    android:inputType="phone"
-                    android:maxLength="11"
+                    android:inputType="textEmailAddress"
                     android:padding="15dp"
                     android:textAlignment="textStart"
                     android:textColorHint="@color/black"
@@ -133,7 +133,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -159,6 +158,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
+                android:id="@+id/user_check"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
