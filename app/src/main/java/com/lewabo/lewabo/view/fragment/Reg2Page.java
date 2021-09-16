@@ -47,11 +47,11 @@ public class Reg2Page extends Fragment {
                     @Override
                     public void onClick(View view) {
                         utility.hideKeyboard(view);
-                        if (!TextUtils.isEmpty(binding.userMobile.getEditableText().toString())) {
+                        if (!TextUtils.isEmpty(binding.userMobile.getText().toString())) {
                             if (!TextUtils.isEmpty(binding.userPassword.getEditableText().toString())) {
                                 if (utility.isNetworkAvailable()) {
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("email", binding.userMobile.getEditableText().toString());
+                                    bundle.putString("email", binding.userMobile.getText().toString());
                                     bundle.putString("pass", binding.userPassword.getEditableText().toString());
                                     navController.navigate(R.id.reg3Fragment, bundle);
                                 } else {

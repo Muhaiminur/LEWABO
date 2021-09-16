@@ -14,11 +14,13 @@
             android:id="@+id/reg6_logo"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_margin="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_fulllogo"
-            app:layout_constraintEnd_toStartOf="@+id/reg6_privacy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,26 +28,27 @@
             android:id="@+id/reg6_privacy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@android:color/transparent"
-            android:gravity="end"
             android:padding="5dp"
-            android:text="@string/privacy_string"
+            android:text="@string/help2_string"
             android:textColor="@color/app_black1"
             android:textSize="@dimen/font_xl"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/reg6_login"
-            app:layout_constraintStart_toEndOf="@+id/reg6_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/reg6_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/transparent"
             android:gravity="end"
             android:padding="5dp"
@@ -54,7 +57,6 @@
             android:textSize="@dimen/font_xl"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/reg6_privacy"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
@@ -87,18 +89,103 @@
                 android:textSize="@dimen/font_extreme"
                 android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/user_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/rectangular_transparent_border_black"
+                android:hint="@string/first_string"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textAlignment="textStart"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/font_xxxl" />
+
+            <EditText
+                android:id="@+id/user_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/rectangular_transparent_border_black"
+                android:hint="@string/last_string"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textAlignment="textStart"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/font_xxxl" />
+
             <com.stripe.android.view.CardInputWidget
                 android:id="@+id/cardInputWidget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/rectangular_red_border_white"
                 app:layout_constraintBottom_toTopOf="@+id/payButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="5dp"
+                app:cardMaxElevation="5dp"
+                app:contentPadding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/reg6_usd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="@string/plan1_string"
+                            android:textColor="@color/app_ash2"
+                            android:textSize="@dimen/font_xxl"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/reg6_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="@string/reg46_string"
+                            android:textColor="@color/app_ash1"
+                            android:textSize="@dimen/font_xl"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/reg6_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Change"
+                        android:textColor="#0B8BFF"
+                        android:textSize="@dimen/font_xl"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -130,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="40dp"
-                android:background="@drawable/rectangular_red"
+                android:background="@drawable/gradient_red"
                 android:padding="5dp"
                 android:text="@string/reg65_string"
                 android:textAlignment="center"

@@ -17,26 +17,15 @@
             android:contentDescription="@string/signin_string"
             android:src="@drawable/ic_fulllogo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:text="@string/signin_string"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_extreme"
-            android:textStyle="bold" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/rectangular_blue"
-            app:boxBackgroundMode="none"
+            android:background="@drawable/rectangular_ash2"
             android:hint=" "
+            app:boxBackgroundMode="none"
             app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +48,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/rectangular_blue"
+            android:background="@drawable/rectangular_ash2"
             app:boxBackgroundMode="none"
             app:hintEnabled="false"
             app:passwordToggleEnabled="true">
@@ -87,7 +76,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/rectangular_red"
+            android:background="@drawable/rectangular_ash2_border_black"
             android:paddingStart="25dp"
             android:paddingEnd="25dp"
             android:text="@string/signin_string"
@@ -97,7 +86,7 @@
             android:textStyle="bold"
             app:backgroundTint="@null" />
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -126,34 +115,16 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_m"
                 android:textStyle="normal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        </LinearLayout>-->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@string/loginfb_string"
-                android:src="@drawable/ic_facebook" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="@string/loginfb_string"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_m"
-                android:textStyle="normal" />
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="@string/recover_password_string"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_xl"
+            android:textStyle="normal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,7 +134,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal">
 
             <TextView

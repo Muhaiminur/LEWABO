@@ -15,6 +15,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginEnd="0dp"
             android:background="@drawable/bottombar_shadow"
+            app:itemIconSize="@dimen/bottom_navigation_icon_size"
             app:itemIconTint="@color/bottomnav"
             app:itemTextColor="@color/bottomnav"
             app:labelVisibilityMode="labeled"

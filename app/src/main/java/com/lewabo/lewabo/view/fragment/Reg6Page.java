@@ -85,16 +85,28 @@ public class Reg6Page extends Fragment {
                     planid = getArguments().getString("planid");
                     if (!TextUtils.isEmpty(email)) {
                         startCheckout();
-                       /* binding.reg5Continue.setOnClickListener(new View.OnClickListener() {
+                        if (planid.equalsIgnoreCase("1")) {
+                            binding.reg6Month.setText(context.getResources().getText(R.string.reg46_string));
+                            binding.reg6Usd.setText(context.getResources().getText(R.string.plan1_string));
+                        } else if (planid.equalsIgnoreCase("2")) {
+                            binding.reg6Month.setText(context.getResources().getText(R.string.reg45_string));
+                            binding.reg6Usd.setText(context.getResources().getText(R.string.plan2_string));
+                        } else if (planid.equalsIgnoreCase("3")) {
+                            binding.reg6Month.setText(context.getResources().getText(R.string.reg47_string));
+                            binding.reg6Usd.setText(context.getResources().getText(R.string.plan3_string));
+                        } else if (planid.equalsIgnoreCase("4")) {
+                            binding.reg6Month.setText(context.getResources().getText(R.string.reg474_string));
+                            binding.reg6Usd.setText(context.getResources().getText(R.string.plan4_string));
+                        }
+                        binding.reg6Change.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("email", email);
                                 bundle.putString("pass", pass);
-                                bundle.putString("planid", planid);
-                                navController.navigate(R.id.reg6Fragment, bundle);
+                                navController.navigate(R.id.reg4Fragment, bundle);
                             }
-                        });*/
+                        });
                     } else {
                         utility.showDialog(context.getResources().getString(R.string.something_went_wrong));
                     }

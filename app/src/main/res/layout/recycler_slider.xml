@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -10,9 +10,43 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:background="@drawable/ic_default"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
-            android:background="@drawable/ic_default"/>
+            android:scaleType="fitXY" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="120dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/splash_t1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:text="@string/privacy_string"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/splash_t2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:text="@string/privacy_string"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_xl"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </FrameLayout>
 </layout>

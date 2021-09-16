@@ -23,6 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.lewabo.lewabo.R;
@@ -36,6 +38,8 @@ public class Utility {
 
     Context context;
     ProgressDialog mProgressDialog;
+
+    ProgressBarView progressDialog;
 
     public Utility(Context context) {
         this.context = context;
@@ -51,7 +55,7 @@ public class Utility {
     }
 
 
-    //================ Show Progress Dialog ===============
+    /*//================ Show Progress Dialog ===============
     public void showProgress(boolean isCancelable, String message) {
         hideProgress();
         mProgressDialog = new ProgressDialog(context, R.style.AppCompatAlertDialogStyle);
@@ -66,6 +70,32 @@ public class Utility {
         try {
             if (mProgressDialog != null && mProgressDialog.isShowing()) {
                 mProgressDialog.dismiss();
+            }
+        } catch (Exception e) {
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }*/
+
+    public void showProgress(boolean isCancelable, String message) {
+        try {
+            if (progressDialog == null) {
+                progressDialog = new ProgressBarView();
+            }
+            progressDialog.setCancelable(isCancelable);
+            progressDialog.show(((FragmentActivity) context).getSupportFragmentManager(), message);
+        } catch (Exception e) {
+            Log.d("Error Line Number", Log.getStackTraceString(e));
+        }
+    }
+
+    /*
+    ================ Hide Progress Dialog ===============
+    */
+    public void hideProgress() {
+        try {
+            if (progressDialog != null || progressDialog.isVisible()) {
+                progressDialog.dismiss();
+                progressDialog = null;
             }
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
