@@ -3,6 +3,7 @@ package com.lewabo.lewabo.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,6 @@ import com.google.gson.reflect.TypeToken;
 import com.lewabo.lewabo.R;
 import com.lewabo.lewabo.adapter.SliderAdapter;
 import com.lewabo.lewabo.data.LandingModel;
-import com.lewabo.lewabo.data.moviecontent.Content;
 import com.lewabo.lewabo.databinding.ActivitySplashBinding;
 import com.lewabo.lewabo.http.ApiService;
 import com.lewabo.lewabo.http.Controller;
@@ -65,6 +65,20 @@ public class SplashPage extends AppCompatActivity {
                     getlist();
                 }
             }
+
+            new CountDownTimer(3500, 1000) {
+
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    binding.splashFirst.setVisibility(View.GONE);
+                    binding.splashSecond.setVisibility(View.VISIBLE);
+                }
+            }.start();
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -137,8 +151,8 @@ public class SplashPage extends AppCompatActivity {
                     try {
                         utility.logger(response.toString());
                         if (response.isSuccessful() && response.code() == 200 && response != null) {
-                            binding.splashFirst.setVisibility(View.GONE);
-                            binding.splashSecond.setVisibility(View.VISIBLE);
+                            //binding.splashFirst.setVisibility(View.GONE);
+                            //binding.splashSecond.setVisibility(View.VISIBLE);
                             utility.logger("landing list " + response.body().toString());
                             API_RESPONSE api_response = response.body();
                             if (api_response.getCode() == 200) {

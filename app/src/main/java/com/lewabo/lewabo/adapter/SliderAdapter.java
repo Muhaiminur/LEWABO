@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lewabo.lewabo.R;
@@ -48,9 +49,15 @@ public class SliderAdapter extends
     public void onBindViewHolder(SliderAdapterVH viewHolder, final int position) {
 
         String sliderItem = mSliderItems.get(position);
-        Glide.with(viewHolder.itemView)
-                .load(sliderItem.toString())
-                .into(viewHolder.imageViewBackground);
+        if (position == 0) {
+            Glide.with(viewHolder.itemView).load("https://i.ibb.co/fMz7n0p/Image.png").into(viewHolder.imageViewBackground);
+            viewHolder.t1.setText("unlimited films,\n" +
+                    "TV programmes\n" +
+                    "& more");
+            viewHolder.t2.setText("Watch anywhere, cancel at any time");
+        } else {
+            Glide.with(viewHolder.itemView).load(sliderItem.toString()).into(viewHolder.imageViewBackground);
+        }
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +77,14 @@ public class SliderAdapter extends
 
         View itemView;
         ImageView imageViewBackground;
+        TextView t1;
+        TextView t2;
 
         public SliderAdapterVH(View itemView) {
             super(itemView);
             imageViewBackground = itemView.findViewById(R.id.slider_image);
+            t1 = itemView.findViewById(R.id.splash_t1);
+            t2 = itemView.findViewById(R.id.splash_t2);
             this.itemView = itemView;
         }
     }
