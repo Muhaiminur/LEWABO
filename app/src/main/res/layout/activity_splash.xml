@@ -16,7 +16,7 @@
             android:scaleType="centerCrop"
             android:visibility="visible"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="iconlogo.json"
+            app:lottie_fileName="iconlogo2.json"
             app:lottie_loop="true"
             app:lottie_scale="2" />
 

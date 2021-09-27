@@ -163,7 +163,9 @@ public class SplashPage extends AppCompatActivity {
                                 if (pList.size() > 0) {
                                     list.clear();
                                     for (LandingModel s : pList) {
-                                        list.add(s.getImage());
+                                        if (list.size()<3){
+                                            list.add(s.getImage());
+                                        }
                                     }
                                     sliderAdapter.renewItems(list);
                                 } else {
