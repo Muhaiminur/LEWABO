@@ -1,195 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         tools:context=".view.fragment.Reg2Page">
 
-        <ImageView
-            android:id="@+id/reg2_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_fulllogo"
-            app:layout_constraintEnd_toStartOf="@+id/reg2_privacy"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/reg2_privacy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/transparent"
-            android:gravity="end"
-            android:padding="5dp"
-            android:text="@string/privacy_string"
-            android:textColor="@color/app_black1"
-            android:textSize="@dimen/font_xl"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/reg2_login"
-            app:layout_constraintStart_toEndOf="@+id/reg2_logo"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/reg2_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
-            android:gravity="end"
-            android:padding="5dp"
-            android:text="@string/signin_string"
-            android:textColor="@color/app_black1"
-            android:textSize="@dimen/font_xl"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/reg2_privacy"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg2_logo">
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/reg2_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_fulllogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/reg2_privacy"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/transparent"
                 android:padding="5dp"
-                android:text="@string/steap1_string"
-                android:textAlignment="textStart"
-                android:textColor="@color/app_black1"
-                android:textSize="@dimen/font_l"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:text="@string/reg21_string"
-                android:textAlignment="textStart"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/font_extreme"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:text="@string/reg22_string"
-                android:textAlignment="textStart"
-                android:textColor="@color/app_black1"
-                android:textSize="@dimen/font_s"
-                android:textStyle="normal" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:text="@string/reg23_string"
-                android:textAlignment="textStart"
+                android:text="@string/help2_string"
                 android:textColor="@color/app_black1"
                 android:textSize="@dimen/font_xl"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/reg2_login"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/reg2_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/transparent"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="@string/signin_string"
+                android:textColor="@color/app_black1"
+                android:textSize="@dimen/font_xl"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginEnd="30dp"
-                android:background="@drawable/rectangular_ash_border_black"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
-                android:hint=" ">
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reg2_logo">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/steap1_string"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/app_black1"
+                    android:textSize="@dimen/font_l"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/reg21_string"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/font_extreme"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/reg22_string"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/app_black1"
+                    android:textSize="@dimen/font_s"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/reg23_string"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/app_black1"
+                    android:textSize="@dimen/font_xl"
+                    android:textStyle="bold" />
+
+                <EditText
                     android:id="@+id/user_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawablePadding="15dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/rectangular_transparent_border_black"
                     android:hint="@string/email_string"
                     android:inputType="textEmailAddress"
                     android:padding="15dp"
                     android:textAlignment="textStart"
                     android:textColorHint="@color/black"
                     android:textSize="@dimen/font_xxxl" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/rectangular_ash_border_black"
-                app:boxBackgroundMode="none"
-                app:hintEnabled="false"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/user_Password"
+                <!--<com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:drawablePadding="15dp"
-                    android:hint="@string/pass_string"
-                    android:inputType="textPassword"
-                    android:padding="5dp"
-                    android:textAlignment="textStart"
-                    android:textColorHint="@color/black"
-                    android:textSize="@dimen/font_xxxl" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/rectangular_ash_border_black"
+                    android:hint="@string/email_string"
 
-            <CheckBox
-                android:id="@+id/user_check"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="5dp"
-                android:checked="true"
-                android:text="@string/reg24_string"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_m"
-                android:textStyle="normal" />
+                    app:boxBackgroundMode="none">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawablePadding="15dp"
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/font_xxxl" />
+                </com.google.android.material.textfield.TextInputLayout>-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/rectangular_ash_border_black"
+                    app:boxBackgroundMode="none"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawablePadding="15dp"
+                        android:hint="@string/pass_string"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:textAlignment="textStart"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/font_xxxl" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/user_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:checked="true"
+                    android:text="@string/reg24_string"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_m"
+                    android:textStyle="normal" />
 
 
-            <Button
-                android:id="@+id/reg2_continue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|bottom"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rectangular_red"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:text="@string/continue_string"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_xl"
-                android:textStyle="bold"
-                app:backgroundTint="@null" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/reg2_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/gradient_red"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:text="@string/continue_string"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_xl"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

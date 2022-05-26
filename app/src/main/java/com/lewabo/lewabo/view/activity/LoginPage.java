@@ -70,7 +70,7 @@ public class LoginPage extends AppCompatActivity {
                     }
                 }
             });
-            binding.loginHelp.setOnClickListener(new View.OnClickListener() {
+           /* binding.loginHelp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     try {
@@ -91,7 +91,7 @@ public class LoginPage extends AppCompatActivity {
                         }
                     }
                 }
-            });
+            });*/
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -125,7 +125,7 @@ public class LoginPage extends AppCompatActivity {
                                             utility.showDialog(context.getResources().getString(R.string.subsexpired_string));
                                             System.out.println("obj1 is greater than obj2");
                                         } else if (retval < 0) {
-                                            if (binding.loginRemember.isChecked()) {
+                                            if (/*binding.loginRemember.isChecked()*/true) {
                                                 utility.clearUserprofile();
                                                 utility.clearuserid();
                                                 utility.setuserid(loginModel.getId().toString());

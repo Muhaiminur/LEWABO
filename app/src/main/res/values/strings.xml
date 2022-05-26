@@ -21,8 +21,11 @@
     <string name="signin_string">Sign in</string>
     <string name="email_string">Email or Phone  Number</string>
     <string name="pass_string">Password</string>
+    <string name="first_string">First Name</string>
+    <string name="last_string">Last Name</string>
     <string name="remember_string">Remember Me</string>
     <string name="help_string">Need  help?</string>
+    <string name="help2_string">Help</string>
     <string name="loginfb_string">login  with facebook</string>
     <string name="new_string">New to lewabo?</string>
     <string name="signup_string"><u>Sigh up now.</u></string>
@@ -48,11 +51,22 @@
     <string name="reg43_string">Recommendations just for you.</string>
     <string name="reg44_string">Change or cancel your plan anytime.</string>
     <string name="reg45_string">Basic</string>
-    <string name="reg46_string">Standard</string>
+    <string name="reg46_string">Economy</string>
     <string name="reg47_string">Premium</string>
-    <string name="reg48_string">$9.99 /\n 1 Month</string>
-    <string name="reg49_string">$54.99 /\n 6 Months</string>
-    <string name="reg410_string">$99 /\n 12 Months</string>
+    <string name="reg474_string">Golden</string>
+    <string name="reg48_string">$9.99</string>
+    <string name="reg49_string">$4.99</string>
+    <string name="reg410_string">$54.99</string>
+    <string name="reg415_string">$99.00</string>
+    <string name="reg411_string">Fewer</string>
+    <string name="reg412_string">Full</string>
+    <string name="reg413_string">Movie access</string>
+    <string name="reg414_string">Membership</string>
+    <string name="reg416_string">1 month</string>
+    <string name="reg417_string">6 months</string>
+    <string name="reg418_string">12 months</string>
+
+
     <string name="reg51_string">STEP 3 of 3</string>
     <string name="reg52_string">Set up your payment</string>
     <string name="reg53_string">your membership starts as soon as you set up payment.</string>
@@ -87,6 +101,13 @@
     <string name="cast">Cast</string>
     <string name="director">Directors</string>
     <string name="writer">Writers</string>
+    <string name="recover_password_string">Recover Password</string>
     <!-- <string name="_string"></string>
     <string name="_string"></string>-->
+
+
+    <string name="plan2_string">USD9.99/1 Month</string>
+    <string name="plan1_string">USD4.99/1 Month</string>
+    <string name="plan3_string">USD54.99/6 Month</string>
+    <string name="plan4_string">USd99.00/12 Month</string>
 </resources>

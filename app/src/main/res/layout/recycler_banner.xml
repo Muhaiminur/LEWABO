@@ -10,32 +10,34 @@
 
         <ImageView
             android:id="@+id/banner_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="228dp"
+            android:layout_height="326dp"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
             android:src="@drawable/ic_default" />
 
-        <!--<androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/banner_catlist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
--->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/banner_scifi"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_gravity="center" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <Button
                 android:id="@+id/banner_addlist"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="26dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="3dp"
                 android:background="@drawable/ic_my_list"
@@ -45,23 +47,23 @@
             <Button
                 android:id="@+id/banner_play"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="56dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="3dp"
-                android:background="@drawable/ic_play"
+                android:background="@drawable/ic_play3"
                 android:padding="5dp"
                 app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/banner_info"
                 style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="24dp"
-                android:layout_height="36dp"
+                android:layout_width="14dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="3dp"
                 android:background="@drawable/ic_info"

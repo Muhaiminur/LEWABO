@@ -20,8 +20,10 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lewabo.lewabo.R;
+import com.lewabo.lewabo.adapter.ScifiAdapter;
 import com.lewabo.lewabo.adapter.TagAdapter;
 import com.lewabo.lewabo.data.moviecontent.Content;
+import com.lewabo.lewabo.data.moviecontent.Genre;
 import com.lewabo.lewabo.data.moviecontent.Tagdata;
 import com.lewabo.lewabo.databinding.FragmentDashboaredPageBinding;
 import com.lewabo.lewabo.http.ApiService;
@@ -52,6 +54,8 @@ public class DashboaredPage extends Fragment {
     List<Tagdata> list = new ArrayList<>();
     Content bannerdata;
 
+    List<Genre> scilist = new ArrayList<>();
+    ScifiAdapter scifiAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -161,6 +165,12 @@ public class DashboaredPage extends Fragment {
             binding.bannerTag.setItemAnimator(new DefaultItemAnimator());
             binding.bannerTag.setAdapter(tagAdapter);
             //gettaglist();
+
+            scifiAdapter = new ScifiAdapter(scilist, context);
+            RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+            binding.dashBanner.bannerScifi.setLayoutManager(mLayoutManager2);
+            binding.dashBanner.bannerScifi.setItemAnimator(new DefaultItemAnimator());
+            binding.dashBanner.bannerScifi.setAdapter(scifiAdapter);
         } catch (Exception e) {
             Log.d("Error Line Number", Log.getStackTraceString(e));
         }
@@ -198,6 +208,13 @@ public class DashboaredPage extends Fragment {
                                                     .load(bannerdata.getImage())
                                                     .fitCenter()
                                                     .into(binding.dashBanner.bannerImage);
+                                            Glide.with(context)
+                                                    .load(bannerdata.getImage())
+                                                    .fitCenter()
+                                                    .into(binding.bannerBcimage);
+                                            scilist.clear();
+                                            scilist.addAll(bannerdata.getGenres());
+                                            scifiAdapter.notifyDataSetChanged();
                                         }
                                     } else {
                                         binding.dashBanner.bannerAddlist.setVisibility(View.GONE);

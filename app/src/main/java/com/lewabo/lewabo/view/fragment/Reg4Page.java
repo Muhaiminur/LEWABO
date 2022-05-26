@@ -114,7 +114,7 @@ public class Reg4Page extends Fragment {
                     }
                 });
                 pac_check();
-                getlist();
+                //getlist();
             } catch (Exception e) {
                 Log.d("Error Line Number", Log.getStackTraceString(e));
             }
@@ -124,37 +124,49 @@ public class Reg4Page extends Fragment {
 
     public void pac_check() {
         try {
-            binding.reg4Pac1.setOnClickListener(new View.OnClickListener() {
+            binding.reg4Pacbutton1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (binding.reg4Pac1.isChecked()) {
+                    planid = "1";
+                    /*if (binding.reg4Pac1.isChecked()) {
                         planid = "1";
                         binding.reg4Pac1.setChecked(true);
                         binding.reg4Pac2.setChecked(false);
                         binding.reg4Pac3.setChecked(false);
-                    }
+                    }*/
                 }
             });
-            binding.reg4Pac2.setOnClickListener(new View.OnClickListener() {
+            binding.reg4Pacbutton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (binding.reg4Pac2.isChecked()) {
-                        planid = "2";
+                    /*if (binding.reg4Pac2.isChecked()) {
                         binding.reg4Pac1.setChecked(false);
                         binding.reg4Pac2.setChecked(true);
                         binding.reg4Pac3.setChecked(false);
-                    }
+                    }*/
+                    planid = "2";
                 }
             });
-            binding.reg4Pac3.setOnClickListener(new View.OnClickListener() {
+            binding.reg4Pacbutton3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (binding.reg4Pac3.isChecked()) {
-                        planid = "3";
+                    /*if (binding.reg4Pac3.isChecked()) {
                         binding.reg4Pac1.setChecked(false);
                         binding.reg4Pac2.setChecked(false);
                         binding.reg4Pac3.setChecked(true);
-                    }
+                    }*/
+                    planid = "3";
+                }
+            });
+            binding.reg4Pacbutton4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    /*if (binding.reg4Pac3.isChecked()) {
+                        binding.reg4Pac1.setChecked(false);
+                        binding.reg4Pac2.setChecked(false);
+                        binding.reg4Pac3.setChecked(true);
+                    }*/
+                    planid = "4";
                 }
             });
 
